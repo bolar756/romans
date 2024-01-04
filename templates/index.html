@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="shortcut icon" href="/static/img/rhomart logo.jpeg" type="image/x-icon">
+    <title>rhomart travels</title>
+</head>
+<body>
+    <header>
+        <a href="" class="logo">
+            <img src="/static/img/rhomart logo.jpeg" alt="">rhomart
+        </a>
+        <nav>
+            <a href="#">login</a>
+            <a href="#">travel</a>
+            <a href="#">search</a>
+            <a href="#about">about</a>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="card hero" style=" --ir:url('/static/img/OIP.jpeg');">
+            <div class="hero-content">
+              <div class="p" style="background: transparent;">
+                <b style="margin-bottom: 30px;">experience the height of luxury travel with rhomart 
+                    travels</b>
+                <b>Enjoy Amazing Luxury Vacations! The Best Selection of Travel Vacation Packages. Enjoy Amazing Luxury Vacations With All Inclusive Luxury Packages. Contact Us Now!
+                Destinations: India, Chile, Botswana, Vietnam, Argentina, South Africa, Cambodia
+                 get to travel to the most expotic places
+                     in the world with rhomart travels</b>
+                <br><button class="button">learn more
+                    <br><img src="{% static 'img/caret-down-sharp.svg' %}" alt="" width="20px" height="20px">
+                </button>
+            </div>
+        </div>
+    </div>
+        <div class="card" style=" --ir:url('/static/img/OIP\ \(1\).jpeg');">
+        <div class="land-content" style="overflow: hidden;">
+            <h2>countries we offer</h2>
+            <div class="countries scroller">
+                <marquee behavior="" direction="">
+                <div class=" cont scroller__inner">
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>singapore</b></p>
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>usa</b>
+                    </p>
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>canada</b>
+                    </p>
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>germany</b>
+                    </p>
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>uk</b>
+                    </p>
+                    <p>
+                        <img src="/static/img/OIP (1).jpeg" alt="">
+                        <br><b>Cambodia</b></p>
+                </div>
+            </marquee>
+            </div>
+        </div>
+        </div>
+        <div class="card" id="about" style=" overflow: hidden; --ir:url('/static/img/panorama.jpg');">
+            <div class="about-us">
+            <h1>hear from our customers</h1>
+            <div class="customer-comment" >
+                <div class="cust">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, reiciendis. Alias, 
+                    similique odio quisquam ipsam tempore quos debitis sed, voluptatem numquam minus, fugiat quam qui repellat atque quod provident pariatur.</div>
+                <div class="cust">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto assumenda accusamus voluptate amet maxime repellat iste? Rem aliquam laudantium cupiditate eveniet, nostrum magnam, architecto nobis 
+                    similique error vel modi eos!
+                    <b></b>
+                </div>
+                    <div class="cust">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus amet nemo atque odit quisquam accusantium at sint, quia veritatis. Sint ut, 
+                     magnam nam necessitatibus molestias. Nihil atque ad officiis.</div>
+                      <b></b>
+                     <div class="cust">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id saepe fugiat 
+                    commodi ipsa necessitatibus eveniet quis quae facilis aut? Consectetur quisquam dolore voluptatem a quae fugit suscipit, est maxime praesentium?</div>
+                    <b></b>
+                    <div class="cust">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde saepe iure aut recusandae,
+                     esse ipsa dignissimos magni eaque molestiae quaerat dolore corporis facilis sequi minus aliquid nulla eos necessitatibus sapiente?</div>
+                     <b></b>
+                     <div class="cust">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident debitis dignissimos placeat est officia
+                     . Velit, minima earum harum corporis nihil nulla illo fugit nam, atque accusantium quidem, aliquid aspernatur nemo!</div>          
+                     <b></b>
+                </div>
+        </div>
+        </div>
+        <div class="card"  id="contact" style=" --ir:url('/static/img/OIP.jpeg');">
+            <div class="contact-content">
+               <form action="" >
+                <p>CONTACT FORM</p>
+                <div class="element1">
+                <input type="text" name="" id="" placeholder="name"><b><img src="/static/img/people.svg"  width="20px" height="20px"></b>
+                <input type="text" name="" id=""  hidden placeholder="country of origin"><b><img src="/static/img/home-sharp.svg"  width="20px" height="20px"></b>
+                <input type="text" name="" id="" placeholder="destination"><b><img src="/static/img/home-sharp.svg"  width="20px" height="20px"></b>
+                <br><input type="number" name="" id="" placeholder="age"><b><img src="/static/img/people.svg"  width="20px" height="20px"></b>
+            </div>
+            <div class="elemnt2">
+                    <input type="radio" name="male" id="male" checked>
+                    <label for="">male</label>
+                    <input type="radio" name="female" id="">
+                    <label for="">female</label>  
+                  <br><input type="number" name="" max="15" min="2" id="" placeholder="size of family">
+                  <br><select name="" id="">
+                    <option value="">REASON FOR VISIT</option>
+                    <option value="">visit</option>
+                    <option value=""> permanent residence </option>
+                    <option value="">study</option>
+                    <option value="">business</option>
+                    <option value="">medical</option>
+                  </select>
+                  <br><input type="text" name="" id="" placeholder="contact">
+                  <br><button type="submit">Submit</button>
+            </div>
+               </form>
+        </div></div>
+        <div class="card" style=" --ir:url('/static/img/OIP\ \(1\).jpeg');"><div class="fotter-content">
+
+        </div></div>
+        <script src="{% static 'js/index.js' %}"></script>
+    </div>
+    <div class="footer">©copyright Rhomart global services</div>
+</body>
+</html>
