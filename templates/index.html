@@ -11,7 +11,8 @@
     <div class="container">
         <h1>Phone Value Evaluation</h1>
       <div class="identity">12</div>
-      <form action="" method="post">
+      <form action="" method="" onsubmit="train()">
+        {% csrf_token %}
         <section class="sect1">
             <div class="form">
             <select name="brand" id="brand" onchange="" class="brand" >
@@ -86,7 +87,7 @@
         </select>
         </div>
             <div class="ded new">
-                <button type="button" onclick="red()">submit</button>
+                <button type="button" onclick="red()">next</button>
             </div>
         </section>
         <section class="act sect2">
@@ -116,6 +117,12 @@
         </section>
       </form>
       <div class="result"></div>
+    </div>
+    <div class="contain none">
+      <b onclick="document.querySelector('.contain').classList.toggle('none')">X</b>
+      <div class="food">
+         <p></p>
+      </div>
     </div>
 </body>
 </html>
@@ -253,10 +260,10 @@ function red(){
  let storage = document.querySelector('size')
  let use = document.querySelector('use')
  let condition= document.querySelector('condition')
- form.addEventListener('onsubmit', function(e){
-      alert('be up');
-
-  })
+ function train(e){
+   e.PreventDefault();
+  console.log('idiot')
+ }
 
  
     </script>
