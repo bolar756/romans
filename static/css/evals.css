@@ -1,0 +1,64 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+body{
+    padding:  40px;
+    text-align: center;
+}
+section{
+    width: 100%;
+    min-height: 10vh;
+    background: green;
+    border-radius:  12px;
+    box-shadow:  3px 5px 12px;
+    font-weight: 600;
+    margin-top:  12px;
+}
+select{
+    width:  70%;
+    margin-top:  30px;
+    padding:  4px;
+    font-size:  20px;
+    text-transform: capitalize;
+}
+ select:focus{
+    color: orange;
+    border:  3px solid  orange;
+ }
+ option{
+    text-transform: capitalize;
+ }
+ section button[type=button] , button[type=submit]{
+    margin-top:  30px;
+    padding:  20px;
+    border: 0;
+    background: green;
+    box-shadow:  2px 3px 12px;
+    min-width:  20%;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-left:  15px;
+ }
+.ded{
+    display: flex;
+    justify-content: space-between;
+    padding:  100px;
+}
+.ded.new button{
+    padding:  20px;
+    border: 0;
+    background: green;
+    box-shadow:  2px 3px 12px;
+    width:  100%;
+}
+.act{
+    display: none;
+}
+.op{
+    display:  none;
+}
+section button{
+    cursor: pointer;
+}
