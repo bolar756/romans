@@ -10,8 +10,8 @@
 <body>
     <div class="container">
         <h1>Phone Value Evaluation</h1>
-      <div class="identity">12</div>
-      <form action="" method="" onsubmit="train()">
+      <div class="identity"><b>1</b><b>2</b></div>
+      <form action="" method="" >
         {% csrf_token %}
         <section class="sect1">
             <div class="form">
@@ -80,7 +80,7 @@
             <option value="itelS16" price="250">Itel S16</option>
             </select>
         </div>
-        <select name="sim-type" id="sim">
+        <select class="sim" name="sim-type" id="sim">
             <option value="">type of sim</option>
             <option value="" price="6">sim</option>
             <option value="" price="12">eSim</option>
@@ -112,17 +112,25 @@
             </select>
             <div class="ded">
                 <button type="button" onclick=" red()">back</button>
-                <button type="submit" onmouseover=" meen()">submit</button>
+                <button type="submit" onsubmit="train(e)">submit</button>
             </div>
         </section>
       </form>
       <div class="result"></div>
     </div>
     <div class="contain none">
-      <b onclick="document.querySelector('.contain').classList.toggle('none')">X</b>
+      <b onclick="document.querySelector('.contain').classList.toggle('none')" class="x">X</b>
+        <div class="child">
+            <h3>are you satisfied with the values</h3>
+        </div>
       <div class="food">
-         <p></p>
+         <div class="model"><b>phone brand</b> <b class="brand">lorem</b></div>
+         <div class="model"><b>phone model</b> <b class="models"></b></div>
+         <div class="model"><b>phone storage</b> <b class="storage size"></b></div>
+         <div class="model"><b>phone condition</b> <b class="condition"></b></div>
+         <div class="model"><b>price ($)</b> <b class="price"></b></div>
       </div>
+     <input type="button" value="save">
     </div>
 </body>
 </html>
@@ -260,10 +268,11 @@ function red(){
  let storage = document.querySelector('size')
  let use = document.querySelector('use')
  let condition= document.querySelector('condition')
- function train(e){
-   e.PreventDefault();
-  console.log('idiot')
- }
+ document.querySelector("button[type=submit]").addEventListener("click", (event) => {
+  event.preventDefault();
+  document.querySelector('.contain').classList.toggle('none');
+  document.querySelector('.models').innerText == sim.value
+});
 
  
     </script>
