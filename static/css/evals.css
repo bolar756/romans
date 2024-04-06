@@ -57,6 +57,10 @@ form  select:focus{
     box-shadow:  2px 3px 12px;
     width: 90%;
 }
+.ded{
+    display: flex;
+    flex-wrap: wrap;
+}
 .act{
     display: none;
 }
