@@ -1,6 +1,6 @@
-{% include 'base.html' %}
+{% extends 'base.html' %}
 {% load static %}
-<body class="" style="">
+{% block body %}
   <div id="root">
       <section class="em--banner-section"><div class="container"><div class="row"><div class="col-md-12"><div class="em--hero-title"><h2>Sell your used phone <br>for <span> Instant <span class="index-module_type__E-SaG">Payment</span></span></h2><p>At Emartio.com, we specialize in the world of electronics, making it easier than ever to buy, sell, exchange, or evaluate your devices. Whether you're looking to upgrade to the latest smartphone, trade in your old mobile, or simply want to know the value of your gadgets, we've got you covered.</p></div><div class="em--hero-image"><img src="{% static 'assets/images/hero/hero.jpeg' %}" alt="Hero Image"></div></div></div></div></section><section class="em--step-section em--section"><div class="container"><div class="row"><div class="col-md-12 col-md-12"><div class="em--sub-head"><h2 class="em--large-head">Sell your device in 3 easy steps</h2></div><div class="em--inline-features"><span class="step__item"><span>1</span><p>Get a price in less than 2 minutes</p></span><span class="step__item"><span>2</span><p>Free home pick-up within 24 hours</p></span><span class="step__item"><span>3</span><p>Get secure data wipe &amp; cash instantly</p></span></div><div class="device__section position-relative row"><div class="em--data-content">
 
@@ -29,3 +29,4 @@
 
 
 </body>
+{% endblock %}

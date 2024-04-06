@@ -46,6 +46,9 @@ def evaluation(request):
 
 def register(request):
     return render(request,'register.html')   
+def sell(request):
+    return render(request,'sell.html')   
+
 
 def login(request):
     return render(request,'login.html')   

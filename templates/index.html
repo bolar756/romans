@@ -1,16 +1,32 @@
-{%include 'base.html' %}
 {% load static %}
+{% block body %}
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phone Value Evaluation</title>
-    <link rel="stylesheet" href="{%static 'css/evals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/evals.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+    <link rel="stylesheet" href="http://www.emartio.com/assets/index-c52a8157.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <header class="em--header" >
+        <nav class="em--main-navbar navbar navbar-expand navbar-light"><div class="container">
+            <a href="/" class="em--navbar-brand active navbar-brand">
+          <img  src="{% static 'assets/images/logos/Emart-green.png' %}"  width="150" height="75" alt="Emart Logo" class="img-fluid">
+        </a><button class="em--navbar-toggle-button">
+            <i class="bx bx-menu" onclick="document.querySelector('#menu').classList.toggle('none');document.querySelector('body').toggle('me')"></i>
+        </button>
+        <div class="em--navbar-collapse navbar-collapse collapse" id="basic-navbar-nav">
+            <div class="me-auto em--navbar-nav navbar-nav"><div class="nav-item">
+                <a href="/sell" data-rr-ui-event-key="/sell" class="nav-link">Sell Now</a></div>
+                <div class="nav-item"><a href="/" data-rr-ui-event-key="/" class="active nav-link">Buy Now</a></div><div class="nav-item">
+                    <a href="/evaluation" data-rr-ui-event-key="/evaluation" class="nav-link">Evaluation</a></div><div class="nav-item">
+                        <a href="/about" data-rr-ui-event-key="/about" class="nav-link">About Us</a></div><div class="nav-item">
+                            <a href="/exchange" data-rr-ui-event-key="/exchange" class="nav-link active">Exchange</a>
+                        </div><div class="em--login-button nav-item"><a href="/login" data-rr-ui-event-key="/login" class="nav-link">Login</a>
+                        </div></div></div></div>
+        </nav></header> 
     <div class="container">
-        <h1>Phone Value Evaluation</h1>
-      <div class="identity"><b>1</b><b>2</b></div>
       <form action="" method="" >
+        <div class="identity"><b>1</b><b>2</b> <b>3</b></div>
         {% csrf_token %}
         <section class="sect1">
             <div class="form">
@@ -114,7 +130,9 @@
                 <button type="submit" onsubmit="train(e)">submit</button>
             </div>
         </section>
-      </form>
+
+        <section>
+              </form>
       <div class="result"></div>
     </div>
     <div class="contain none">
@@ -272,36 +290,21 @@ function red(){
   document.querySelector('.contain').classList.toggle('none');
   document.querySelector('.models').innerText == sim.value
 });
-
- 
     </script>
-    <div class="results"></div><button type="button" class="em--primary-button mt-5 ms-auto">Next</button>
-                                </div><div class="em--step-card step--form "><div class="em--grid-1 em--evaluation-checkbox"><div class="evaluation--checkbox-card"><div class="title-content"><h5>Repaired</h5><p>Is your mobile repaired?</p>
-                                </div><div class="radio--button"><div class="em--form-check form-check"><input name="repaired" type="radio" id="em--evaluate-repairYes" class="form-check-input" checked="">
-                                    <label title="" for="em--evaluate-repairYes" class="form-check-label">Yes</label>
-                                </div><div class="em--form-check form-check"><input name="repaired" type="radio" id="em--evaluate-repairNo" class="form-check-input">
-                                    <label title="" for="em--evaluate-repairNo" class="form-check-label">No</label></div></div></div><div class="evaluation--checkbox-card">
-                                        <div class="title-content"><h5>Scratched</h5><p>Is your mobile scratched?</p></div><div class="radio--button"><div class="em--form-check form-check">
-                                            <input name="scratch" type="radio" id="em--evaluate-scratchYes" class="form-check-input" checked="">
-                                            <label title="" for="em--evaluate-scratchYes" class="form-check-label">Yes</label></div><div class="em--form-check form-check">
-                                                <input name="scratch" type="radio" id="em--evaluate-scratchNo" class="form-check-input">
-                                                <label title="" for="em--evaluate-scratchNo" class="form-check-label">No</label></div></div>
-                                            </div><div class="evaluation--checkbox-card"><div class="title-content"><h5>Accessories</h5><p>Is your mobile scratched?</p>
-                                            </div><div class="radio--button"><div class="em--form-check form-check">
-                                                <input name="accessories" type="radio" id="em--evaluate-accessoriesYes" class="form-check-input" checked="">
-                                                <label title="" for="em--evaluate-accessoriesYes" class="form-check-label">Yes</label></div><div class="em--form-check form-check">
-                                                    <input name="accessories" type="radio" id="em--evaluate-accessoriesNo" class="form-check-input">
-                                                    <label title="" for="em--evaluate-accessoriesNo" class="form-check-label">No</label></div>
-                                                </div></div><div class="evaluation--checkbox-card"><div class="title-content"><h5>Box</h5><p>Does this mobile have a box?</p>
-                                                </div><div class="radio--button"><div class="em--form-check form-check"><input name="box" type="radio" id="em--evaluate-boxYes" class="form-check-input" checked="">
-                <label title="" for="em--evaluate-boxYes" class="form-check-label">Yes</label>
-            </div><div class="em--form-check form-check"><input name="box" type="radio" id="em--evaluate-boxNo" class="form-check-input">
-                <label title="" for="em--evaluate-boxNo" class="form-check-label">No</label></div></div></div><div class="evaluation--checkbox-card">
-                    <div class="title-content"><h5>Warranty</h5><p>Does this mobile warranty?</p></div><div class="radio--button"><div class="em--form-check form-check">
-                        <input name="warranty" type="radio" id="em--evaluate-warrantyYes" class="form-check-input" checked="">
-                        <label title="" for="em--evaluate-warrantyYes" class="form-check-label">Yes</label></div><div class="em--form-check form-check">
-                            <input name="warranty" type="radio" id="em--evaluate-warrantyNo" class="form-check-input">
-                            <label title="" for="em--evaluate-warrantyNo" class="form-check-label">No</label></div></div></div></div><div class="d-flex align-items-center justify-content-between">
-                    <button type="button" class="em--primary-button mt-5 me-auto">Prev</button><button type="button" class="em--primary-button mt-5 ms-auto" disabled="">Next</button>
-                </div></div><div class="em--step-card step--form em--step-card-price "><div class="d-flex align-items-center justify-content-between"><button type="button" class="em--primary-button me-auto">Prev</button>
-                    <button type="submit" class="em--primary-button btn ms-auto">Submit</button></div></div></form></div></div></div></div></section>
+                                <style>
+                                    .none{
+                                        display: none;
+                                    }
+       </style> 
+        <div role="dialog" aria-modal="true" class="em--mobile-menuSidebar offcanvas offcanvas-start show none" tabindex="-1" style="visibility: visible;" id="menu">
+            <div class="offcanvas-header"><div class="offcanvas-title h5">Menu</div>
+            <button type="button" class="btn-close" aria-label="Close" onclick="document.querySelector('#menu').classList.toggle('none'); document.querySelector('body').toggle('me')"></button></div>
+            <div class="offcanvas-body"><ul class="em--mobile-menu"><li><a class="" href="/sell">Sell Now</a></li>
+              <li><a aria-current="page" class="active" href="/">Buy Now</a></li>
+              <li><a class="" href="/evaluation">Evaluation</a></li>
+              <li><a class="" href="/about">About Us</a></li>
+              <li><a class="" href="/exchange">Exchange</a></li>
+            </ul></div>
+          </div>
+        </div>            
+{% endblock %}
