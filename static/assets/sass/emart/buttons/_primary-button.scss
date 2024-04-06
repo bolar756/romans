@@ -1,0 +1,35 @@
+@mixin em--primary-button {
+    position: relative;
+    @include padding(1.2rem 2.5rem);
+    color: $white-color;
+    text-align: center;
+    display: inline-block;
+    // background-color: $heroBackground-rgb;
+    background-color: transparent;
+    border: 1px solid $white-color;
+    user-select: none;
+    @include border-radius(0.5rem);
+    @include font-scale($font-family, 400, $font-size-base, normal);
+
+    &:focus {
+        @include focus();
+    }
+
+    &:hover {
+        color: $white-color;
+        border-color: $white-color;
+    }
+
+    .em {
+        &--icon {
+            @include margin-left(10px);
+            @include sizes(15px, 14px);
+            vertical-align: middle;
+            display: inline-flex;
+        }
+    }
+}
+
+.em--primary-button {
+    @include em--primary-button;
+}

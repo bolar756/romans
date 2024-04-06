@@ -1,0 +1,53 @@
+@mixin em--storage-content {
+    position: relative;
+
+    .em {
+        &--storage-list {
+            list-style-type: none;
+            position: relative;
+            @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+            gap: 20px;
+
+            @media (max-width: 599px) {
+                @include grid('grid-template-columns', 'repeat(2, 1fr)', 20px, 20px)
+            }
+        }
+
+        &--storage-item {
+            flex: 1;
+            position: relative;
+            @include sizes(auto, 60px);
+
+            // @media (min-width: 399px) and (max-width: 599px) {
+            //     flex: 0 0 50%;
+            //     @include size-width(50%);
+            // }
+
+            // @media (max-width: 399px) {
+            //     flex: 0 0 100%;
+            //     @include size-width(100%);
+            // }
+
+            .form {
+                &-check-inline {
+                    display: grid;
+                    place-items: center;
+                    @include sizes(100%, 100%);
+
+                    label {
+                        @include font-scale($font-family, 400, 20px, auto);
+                        color: $dark-gray;
+                    }
+
+                    input {
+                        border: 1px solid $smoke-gray;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.em--storage-content {
+    @include em--storage-content;
+}

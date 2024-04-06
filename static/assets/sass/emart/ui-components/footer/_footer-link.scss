@@ -1,0 +1,35 @@
+.em {
+    &--link-tag {
+        display: block;
+        position: relative;
+
+        a {
+            color: $dark-gray;
+            @include margin-bottom(.8rem);
+            display: inline-block;
+
+            &:not(:last-of-type) {
+                @include margin-right(5px);
+            }
+
+            &:after {
+                content: ',';
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+    }
+
+    &--ft-list {
+        li {
+            &:not(:last-of-type) {
+                @include margin-bottom(1.2rem);
+            }
+        }
+    }
+
+    &--ft-link {
+        color: #494949;
+       
+    }
+}

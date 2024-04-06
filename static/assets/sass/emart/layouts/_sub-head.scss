@@ -1,0 +1,35 @@
+.em--sub-head {
+  h2 {
+    position: relative;
+    display: block;
+    color: $black-color;
+  }
+}
+
+.em--large-head {
+  @include font-scale($font-family, 500, 48px, 1.2);
+  @include margin-bottom(0.5rem);
+  text-align: center;
+
+  @media (max-width: 768px) and (max-width: 1199px) {
+    font-size: 35px;
+  }
+
+  @media (min-width: 500px) and (max-width: 767px) {
+    font-size: 32px;
+  }
+
+  @media (max-width: 499px) {
+    font-size: 28px;
+  }
+}
+
+.inner-head {
+  @include font-scale($font-family, 500, 3.052rem, 1.2);
+  letter-spacing: -.04em;
+  @include margin-bottom(0.5rem);
+  text-align: left;
+  position: relative;
+  display: block;
+  color: $primary-color;
+}

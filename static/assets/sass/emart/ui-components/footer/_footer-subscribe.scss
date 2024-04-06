@@ -1,0 +1,44 @@
+.em {
+
+    &--subscribe-flex {
+        @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: space-between);
+        @include size-width(100%);
+
+        border-bottom: 1px solid $smoke-gray;
+            @include padding-bottom(2rem);
+            @include size-width(100%);
+            position: relative;
+            // display: block;
+            @include margin-bottom(2rem);
+
+        .btn {
+            @include position(absolute, 0, 0, 0, null);
+            @include sizes(150px !important, 60px !important);
+            @include padding(0 !important);
+            font-weight: 500;
+            background-color: $background-rgb;
+            @include border-radius(0 3px 3px 0);
+            border: none;
+        }
+
+        .form {
+            &-group {
+                @include sizes(410px, 60px);
+                position: relative;
+                display: block;
+            }
+
+            &-control {
+                @include sizes(100%, 60px);
+                @include padding-right(170px);
+                @include border-radius(3px);
+
+                &:focus {
+                    box-shadow: none;
+                    outline: none;
+                    border-color: $primary-color;
+                }
+            }
+        }
+    }
+}
