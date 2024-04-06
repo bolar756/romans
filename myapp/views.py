@@ -43,6 +43,8 @@ def index(request):
     
 def evaluation(request):
     return render(request,'index.html')   
+def about(request):
+    return render(request,'abou.html')   
 
 def register(request):
     return render(request,'register.html')   
