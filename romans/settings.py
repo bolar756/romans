@@ -77,7 +77,8 @@ WSGI_APPLICATION = 'romans.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {'default': 
-             dj_database_url.config(default = 'postgresql://postgres:1Bgfg6-C*4dB*14f61CgCeD-FGfacfA4@monorail.proxy.rlwy.net:31468/railway')}
+             dj_database_url.config
+             (default = 'postgresql://postgres:1Bgfg6-C*4dB*14f61CgCeD-FGfacfA4@monorail.proxy.rlwy.net:31468/railway')}
 
 
 
@@ -127,4 +128,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL='/media/'
 MEDIA_ROOT=(os.path.join(BASE_DIR,'/media/'))
-

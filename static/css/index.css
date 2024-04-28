@@ -65,7 +65,8 @@ nav a:hover::before{
 }
 nav a:hover{
      z-index: 12;
-    border: 2px solid #00abf0; transition: .3s;
+    border: 2px solid #00abf0; 
+    transition: .3s;
 }
 .logo{
     font-size: 25px; color: #ededed;text-decoration: none;
