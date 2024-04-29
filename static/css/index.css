@@ -56,6 +56,10 @@ align-items: center;
 .scroll{
     overflow: hidden;
 }
+footer{
+    min-height:  20vh;
+    background:  black;
+}
 footer p{
     color: white;
 }
@@ -217,10 +221,10 @@ header{
     }
 }
 .faq{
-    height: 100vh;
+    min-height: 10vh;
 }
 .contain h1{
-    color: white;
+    color:  black;
     text-transform: uppercase;
 }
 .divs{
@@ -272,3 +276,100 @@ header{
    color: black;
    border-radius: 20px;
   }
+  /* Faq */
+  .faq{
+    background:  white;
+    min-height: 20vh;
+  }
+  .faq h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:  20px;
+  }
+  
+  .faq-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .faq-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .faq-title {
+    cursor: pointer;
+    padding: 15px 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .faq-content {
+    padding: 15px 20px;
+    display: none;
+  }
+  
+  .faq-item.active .faq-content {
+    display: block;
+  }
+/* footer */
+.footer {
+    background-color: #f2f2f2;
+    padding: 20px 0;
+    text-align: center; /* For initial centered content */
+  }
+  
+  .footer__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distribute sections evenly */
+    margin: 0 auto;
+    width: 80%; /* Adjust container width for larger screens */
+    max-width: 700px; /* Set a maximum width for smaller screens */
+  }
+  
+  .footer__section {
+    flex: 1; /* Make sections flexible and grow/shrink as needed */
+    margin-bottom: 20px;
+    text-align: left; /* Align content left within sections */
+  }
+  
+  .footer__section-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .footer__list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer__item {
+    margin-bottom: 5px;
+  }
+  
+  .footer__social {
+    display: flex;
+    justify-content: center; /* Center social icons horizontally */
+    margin-top: 20px;
+  }
+  
+  .footer__social-icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  /* Media Queries for Responsive Adjustments */
+  
+  @media only screen and (max-width: 768px) {
+    .footer__container {
+      width: 90%; /* Adjust container width for smaller screens */
+    }
+    .footer__section {
+      flex: auto; /* Allow sections to grow/shrink freely */
+    }
+  }
+  
