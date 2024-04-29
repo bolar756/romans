@@ -1,0 +1,138 @@
+@mixin em--login-area {
+    position: relative;
+    // @include size-width(100%);
+    background-color: $background-rgb;
+    @include padding(25rem 0 30rem 0);
+    // @include overflow(hidden, hidden);
+    overflow: hidden;
+    z-index: 1;
+    @include margin-bottom(10rem);
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        top: 60%;
+        width: 260vw;
+        height: 260vw;
+        border-radius: 500vw;
+        background-color: #ffffff;
+        display: inline-block;
+    }
+
+    .text14 {
+        @include font-scale($font-family, 400, 14px, normal);
+    }
+
+    h4 {
+        @include font-scale($font-family, 700, 30px, normal);
+        @include margin-bottom(30px);
+        display: block;
+        text-align: center;
+        // text-transform: uppercase;
+    }
+
+    .forgot-link {
+        @extend .text14;
+        text-decoration: none;
+        position: relative;
+        color: $primary-color;
+        text-align: right;
+        display: inline-block;
+        // @include size-width(100%);
+    }
+
+    .form {
+
+        &-group {
+            &:not(:last-of-type) {
+                @include margin-bottom(30px);
+            }
+
+            &.group--inline {
+                @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: space-between);
+                @include size-width(100%);
+            }
+        }
+
+        &-label {
+            @extend .text14;
+            color: $smoke-gray;
+            text-align: left;
+            position: relative;
+            @include margin-bottom(5px);
+        }
+
+        &-control {
+            @include padding(18px 20px);
+            @include border-radius(10px);
+            @extend .text14;
+
+            &:focus {
+                box-shadow: none;
+                border-color: $primary-color;
+            }
+        }
+    }
+
+    .em {
+        &--login-card {
+            background-color: $white-color;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            @include padding(4rem 3rem);
+            @include border-radius(10px);
+            @include position(absolute, null, null, 10px, 50%);
+            @include prefix(transform, translateX(-50%), webkit ms);
+            @include size-width(450px);
+        }
+
+        &--primary-button {
+            background-color: $primary-color !important;
+            @include sizes(100%, 60px);
+            @include padding(0);
+            @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+            @include margin-top(20px);
+
+            &:focus,
+            &:active {
+                background-color: $primary-color !important;
+                color: $white-color;
+            }
+        }
+
+        &--button-login {
+            @include grid('grid-template-columns', 'repeat(2, 1fr)', 30px, 30px);
+            grid-gap: 15px;
+            position: relative;
+            @include margin-top(40px);
+
+            button {
+                background-color: $white-color;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                border: none;
+                @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+                @include sizes(100%, 60px);
+                @include border-radius(10px);
+                @extend .text14;
+                font-weight: bold;
+
+
+                .icon {
+                    @include margin-right(10px);
+                }
+
+                &:focus {
+                    outline: none;
+                    // box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+.em--login-area {
+    @include em--login-area;
+}

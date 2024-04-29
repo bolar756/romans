@@ -1,0 +1,119 @@
+@mixin em--step-section {
+    position: relative;
+    display: block;
+    @include sizes(100%, auto);
+    background-color: $white-color;
+
+    .em {
+        &--inline-features {
+            @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+            @include margin-top(6rem);
+            @include margin-bottom(6rem);
+
+            @media (min-width: 1440px) {
+                @include max-size-width(960px);
+                @include margin-inline(auto);
+            }
+
+            @media (max-width: 767px) {
+                @include margin-top(4rem);
+            }
+
+
+            .step__item {
+                flex: 1;
+                display: block;
+                text-align: center;
+                position: relative;
+
+                @media (max-width: 599px) {
+                    flex: 0 0 100%;
+
+                    &:not(:last-of-type) {
+                        @include margin-bottom(40px);
+                    }
+                }
+
+                &:hover {
+                    // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                    // @include padding(10px);
+
+                    span {
+                        background-color: $primary-color;
+                        color: $white-color;
+                        @include transition(0.25s ease);
+                    }
+                }
+
+                &:not(:last-of-type) {
+                    &:after {
+                        content: "";
+                        border-top: 2px dotted $primary-color;
+                        @include size-width(122px);
+                        display: inline-block;
+                        @include position(absolute, 35px, -56px, null, null);
+
+                        @media (max-width: 767px) {
+                            display: none;
+                        }
+                    }
+                }
+
+                // @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: flex-start);
+
+                span {
+                    @include font-scale($font-family, 500, 3.052rem, .85);
+                    // display: inline-block;
+                    @include margin-right(1.25rem);
+                    color: $primary-color;
+                    @include border-radius(100px);
+                    border: 2px solid $primary-color;
+                    @include sizes(80px, 80px);
+                    @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+                    @include margin-inline(auto);
+                    @include transition(0.25s ease);
+                    position: relative;
+
+                    @media (min-width: 600px) and (max-width: 767px) {
+                        font-size: 2.2rem;
+                        @include sizes(60px, 60px);
+                    }
+
+                    @media (max-width: 599px) {
+                        font-size: 2rem;
+                        @include sizes(60px, 60px);
+                    }
+                }
+
+                p {
+                    @include size-width(172px);
+                    @include margin-inline(auto);
+                    @include font-scale($font-family, 400, $font-size-h6, 22px);
+                    @include margin-top(2rem);
+                    color: $black-bg;
+
+                    @media (max-width: 767px) {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .step__icon {
+                // @include margin-right(40px);
+                vertical-align: middle;
+
+                &:last-of-type {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.em--step-section {
+    @include em--step-section;
+}
+
+@import '../devices/devices';
+
+@import './storage';

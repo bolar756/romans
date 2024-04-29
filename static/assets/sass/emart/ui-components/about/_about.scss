@@ -1,0 +1,94 @@
+@mixin em--about-section {
+    position: relative;
+    display: block;
+    @include size-width(100%);
+    @include padding(12rem 0 8rem 0);
+
+    h2,
+    h3,
+    h4,
+    p {
+        position: relative;
+        display: block;
+        color: $black-color;
+    }
+
+    h4 {
+        @include font-scale($font-family, 600, 20px, normal);
+        @include margin-bottom(4rem);
+        @include size-width(80%);
+        @include margin-inline(auto);
+    }
+
+    p {
+        @include font-scale($font-family, 300, 18px, 28px);
+        text-align: left;
+        color: $dark-med-gray;
+        @include size-width(65%);
+    }
+
+    h2 {
+        @include font-scale($font-family, 500, 60px, normal);
+        @include margin-bottom(2rem);
+    }
+
+    h3 {
+        @include font-scale($font-family, 500, 25px, normal);
+        @include margin-bottom(2rem);
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    li {
+        background-color: $lightBackground-rgb;
+        @include padding(60px 60px);
+        @include border-radius(5px);
+    }
+
+    .em {
+
+        &--about-title {
+            @include size-width(80%);
+            @include margin-inline(auto);
+        }
+
+        &--about-content {
+
+            img {
+                @include sizes(100%, 500px);
+                object-fit: cover;
+                @include margin-top(4rem);
+            }
+        }
+
+        &--about-grid {
+            @include margin-top(5rem);
+            @include size-width(80%);
+            @include margin-inline(auto);
+
+            h2 {
+                font-size: 40px;
+                font-weight: 500;
+                @include margin-bottom(15px);
+            }
+        }
+
+        &--about-flex {
+            @include grid('grid-template-columns', 'repeat(2, 1fr)', 20px, 20px);
+            column-gap: 40px;
+            row-gap: 40px;
+            @include margin-top(6rem);
+
+            p {
+                @include size-width(100%);
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.em--about-section {
+    @include em--about-section;
+}

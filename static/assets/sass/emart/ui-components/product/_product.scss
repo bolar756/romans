@@ -1,0 +1,77 @@
+@mixin em--product-information {
+    position: relative;
+    display: block;
+    @include sizes(100%, auto);
+    @include padding-top(10rem !important);
+
+    h2 {
+        @include font-scale($font-family, bold, 35px, normal);
+        text-align: center;
+        @include margin-bottom(4rem);
+        color: $black-bg;
+    }
+
+    .em {
+        &--progress-step-item {
+            position: relative;
+            @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+
+            span {
+                display: block;
+                @include font-scale($font-family, 500, 16px, normal);
+            }
+        }
+
+        &--back {
+            @include position(absolute, 4rem, null, null, 4rem);
+            text-decoration: none;
+            color: $black-color;
+            @include font-scale($font-family, 600, 14px, normal);
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: flex-start);
+
+            .icon {
+                @include margin-right(8px);
+                vertical-align: middle;
+            }
+
+            img {
+                vertical-align: middle;
+            }
+        }
+
+        &--progress-list {
+            @include margin-right(5rem);
+            cursor: pointer;
+            position: relative;
+
+            &.active-list {
+                &:before {
+                    content: '';
+                    @include position(absolute, 50%, 0, 0, -20px);
+                    @include prefix(transform, translate(-50%, -50%), webkit ms);
+                    width: 0;
+                    height: 0;
+                    border-top: 10px solid transparent;
+                    border-left: 12px solid $primary-color;
+                    border-bottom: 10px solid transparent;
+                }
+
+                span {
+                    color: $primary-color;
+                }
+            }
+
+            &.disabled-list {
+                opacity: 0.4;
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+    }
+}
+
+.em--product-information {
+    @include em--product-information;
+}

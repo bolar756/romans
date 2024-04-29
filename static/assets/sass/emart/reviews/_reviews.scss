@@ -1,0 +1,59 @@
+.em {
+    &--review-summary {
+        // position: relative;
+        // @include position(absolute, null, null, -42px, 50%);
+        @include prefix(transform, translateX(-50%), webkit ms);
+        @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: center);
+        background-color: $white-color;
+        border: .8px solid #d9c0ff;
+        @include border-radius(8px);
+        @include padding(0.75rem 1.25rem);
+        z-index: 99;
+
+        .google-logo {
+            img {
+                @include border-radius(100px);
+                @include sizes(64px, 64px);
+                position: relative;
+                object-fit: cover;
+                aspect-ratio: auto 256/256;
+            }
+        }
+
+        .review-stars-text {
+            @include margin-left(15px);
+
+            .stars-icon {
+                --percent: 95%;
+                display: inline-block;
+                font-size: 1.8rem;
+                line-height: 1;
+
+                &:before {
+                    content: "★★★★★";
+                    letter-spacing: 3px;
+                    background: linear-gradient(90deg, #FCC856 var(--percent), lightgray var(--percent));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-size: 1.8rem;
+                }
+            }
+
+            span {
+                color: #1f0a54;
+                @include font-scale($font-family, 500, $font-size-h6, normal);
+                text-align: left;
+                position: relative;
+                @include padding-right(6px);
+
+                &:nth-child(1) {
+                    border-right: 1px solid #1f0a54;
+                }
+
+                &:last-child {
+                    @include padding-left(6px);
+                }
+            }
+        }
+    }
+}

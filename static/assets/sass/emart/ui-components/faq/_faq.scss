@@ -1,0 +1,74 @@
+@mixin em--faq-section {
+    background-color: $lightBackground-rgb;
+
+    a {
+        text-decoration: none;
+    }
+
+    p {
+        display: block;
+        @include margin-top(20px);
+        @include font-scale($font-family, 400, 16px, normal);
+        text-align: left;
+        // color: rgba(73, 73, 73, 1);
+        color: $primary-color;
+    }
+
+    .em--large-head {
+        text-align: left !important;
+        color: $primary-color;
+    }
+
+    .em {
+        &--link {
+            display: block;
+            @include margin-top(20px);
+            @include margin-bottom(40px);
+            @include font-scale($font-family, 500, 16px, normal);
+            // color: #503A59;
+            color: $primary-color;
+            text-align: left;
+        }
+
+        &--faq-accordion {
+            .accordion {
+                &-item {
+                    background-color: transparent;
+                    border: none;
+                }
+
+                &-button {
+                    background-color: transparent;
+                    box-shadow: none;
+                    @include font-scale($font-family, 500, 1.266rem, normal);
+                    color: $primary-color;
+
+                    &:not(.collapsed)::after {
+                        // background-image: url('../../../../images/icons/accordion/MinusCircle.svg');
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgEAQAAACJ4248AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAAAqo0jMgAAAAlwSFlzAAAAYAAAAGAA8GtCzwAAAAd0SU1FB+cGAQwsI2Il8OcAAANtSURBVFjDvVdNT1NBFD23PK1UkI8QSsEF1e4gwo6WnZi4MAQMCxN/BIHAyhXRxMDCEIILUvgNLWxwZzcK7c70D0AgfLgxqKVIazLHxZQ3fdAnr9g6mya9M+ecuTPvzrkCj4OquRkyOgo+fgwZHAR6e4HWVh39/h3Y3QWzWUgqBW5uii+X84r9d2KGQuTKCpnP0/PI56nW1qgikevwxZ24sRF49QqcmYHcvWsiZ2dgOg05PASOjvR/3d1gTw8kFgMCATP3929gcRGcmxNfoeB91yoSIbNZsyOlqBIJcmxMC3MXTY6Pk8kkqZRZv7VFFQx6JH/0iPz61Sz+9IlqaKj6o4tGya0tg7O/T9Xff82iri5yf98sisepLKtacoPX0EAuLBi8w0Oyu9tl8p07VOm0mTw5eVPiq9hTU87j8PsrTHrzxkxaWqoVucFfXjb48/OXgqEQ1empfeZsaKi5AGVZ5k4UCuTDh2UCVlbMba/+wnnPQixmfx1qdbWkrLnZLjIqkagXuRGxvq65Tk+pmppAvnxpzmZsrP4CxscN34sXoFpbsxX9pcjUTkAgYMp6PO6DDAzoUCYj8utXvQWInJ2BmYxWMzBggeEwBNC13U31kydge3t1TN++iaRSlWMHB/o3HLYg9+5plsoCyIkJIJFwf7bcBzkxIbK+fjVy8Yi1tPjKcuNCcXwMVPGS2aNQ0GsrpsDmssCfPyEdHUDlGi2STpOhENDWVp2AkxORk5PKsQuuHz8syM4O0NEB3r/vBqWB3MBuMkpc3NnxgdmsZolG/9dnCJSqrWSzPtg3NRAAnj6ttwDNUXJN/PjRWYqZTNY/AxsbmiuXI0tWz66GVIqMRutHPjxcbnZMQEUiZLFoDMPNXZArubIsY3jOz8lw+JK6cuu0vFz73b9/b/Dfvq2g0O93msipqdqRT087Te7t2y5pCgbJvT2nKb1165/S7sjs3t619pyqv98pYnubjMWq3/XwMFUm4yBnX59H5cEg+fmzozFhMqnNRHnnc5k0ECCfP7ddjyPtnZ2V1ri3ZsrvB+bmILOzQPmZld5zOTgwr1pPj27NolFna1YsAu/ega9fi69YvNk58sEDfRcuXLOXkcuR8fiVT62aDFzNSFMT5NkzYGQEHByEhMOO9py7u5AvX8BUCvLhg0g+7wX3D5+CbjyS0oOVAAAAAElFTkSuQmCC');
+                    }
+
+                    &:after {
+                        // background-image: url('../../../../images/icons/accordion/PlusCircle.svg');
+                        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgEAQAAACJ4248AAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1MAAA6mAAADqYAAAXcJy6UTwAAAACYktHRAAAqo0jMgAAAAlwSFlzAAAAYAAAAGAA8GtCzwAAAAd0SU1FB+cGAQwsOZ9HCZ0AAAPJSURBVFjDtVe/T1NRFP7O82ljgUQNEUtNpKSLAbWLsTRhsCYOhIg6OeofYDRsToqJPwZjDA4EWXRzAV100NilQmscTP0DSjSIcTCopdWW5H4Ot/S+B694i3Cml3fv/b5zvnPvPecKLI2qowMyPAym05Bjx4CeHmDPHj364wcwPw8WCpBMBnzxQpxSyRZ7Y2JGIuTEBFku09rKZaqpKap4/F/40px4927g2jVwdBTS1mZGKhUwl4N8+QIsLup/3d1gNAoZGADCYTN3ZQW4fx+8fl2catU+ahWPkx8/moiUopqeJs+c0Y41d5ocGSFnZkilzPrZWaquLkvJEwny2zezOJulOnGi9dQlk+TsrMH59Imqv98ici/5gwfkjh2tkhs81yXHx/1ONFFCy+eV/fLlzRKvx7561eC+fUsVCgVMunnTG/lWkRv8hw/Nlrp9e81gJEK1vNzIuaXs5KVL5MWLVnOV65Jzc5qjWiV7ez1AExNmt9ttOKqjR01ER47YOZxKmdMxOVkH6uhoXDJqetpaUjU4aBwYHLRPxfPnes3yMlV7uwMZHm5cHvLkiS3Q5u3xY83V1gYZGnLAdFq7Vi4Dr19vvwOvXgGViv5Opx1dWAAgnxf5/Xu76UUqFeDdOx10IuGCsRgE0Hd7sJGnToH79vmRDh823ydPUh044B///l0kkwlGXFjQc2Ix6CMRcDYb5OfP21fBtXbuXDDmnTt6/M8fx6NNk8r49SvQQiVrWLWq1wYnYvXLBX/9gnR2At3dwVNzOTISAfbu9Y8cPw48faq/L1wA3r/3jy8tiSwtBTuwyvXzpwspFoHOTvDgwWaxaCA/GFU02ugmuLgoTrFor06di8WiAxYKmiWZ3KjWb5WR4TBQv22lUHDQ2KnhMHD69HY7oDnqFx/fvPFfxZyZsY7kf69ilkpkvdWjmppqFCMmk3ZAPT3kygpZq1EdOmS3JpUyR7RejLQD8ThZq5n+zXXtAPv6yL4+O8VclyqXWz3/ZCy2BuzuXePd+LitpPbSexoS3roV4GEo5G8ir1zZOnJvS5bNUu3a1USmri7y82dvnqh27tw0sXJdv7IbNKVmUX+/34m5OXJgoPWoUymqfN5Hbrlf6kp406GUfmyMjOiLpBlpOEyePUs+e+YvStks1f79QWuaP81UKAS5cQMYHQW8OatUwHwesrBgnmbRqH6aJZP+p1mtBty7B46NiVOrbS6P7O2levTIdM02ViqRk5PrjlorCqxXpL0dMjQEpNNgIgGJxXzPc87PQz58ADMZyMuXIuWyDe5fagPXOYdM70IAAAAASUVORK5CYII=');
+                    }
+
+                    &:focus {
+                        outline: none;
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+
+                &-body {
+                    @include font-scale($font-family, 400, 16px, 28px);
+                    color: $black-color;
+                }
+            }
+        }
+    }
+}
+
+.em--faq-section {
+    @include em--faq-section;
+}

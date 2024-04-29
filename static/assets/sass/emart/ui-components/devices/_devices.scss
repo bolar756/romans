@@ -1,0 +1,72 @@
+@mixin device__section {
+    @include margin-top(3.5rem);
+    @include margin-inline(auto);
+
+    @media (min-width: 1440px) {
+        @include max-size-width(1020px);
+    }
+
+    .col-md-3 {
+        @media (min-width: 768px) and (max-width: 991px) {
+            flex: 0 0 auto;
+            width: 50%;
+        }
+    }
+
+    .device {
+        &__content {
+            @include margin-bottom(2rem);
+
+            &:hover {
+                a {
+                    @include prefix(transform, translateY(-10px), webkit ms);
+                    @include transition(0.25s ease);
+                }
+            }
+
+            a {
+                // border: .8px solid #96D994;
+                // border: none;
+                border: 2px solid $white-color;
+                box-shadow: 2px 8px 20px rgba(210, 206, 221, .3);
+                @include border-radius(15px);
+                @include flex--config($flex-wrap: wrap, $align-items: center, $justify-content: flex-start, $flex-direction: column);
+                @include padding(1.5rem 0 2rem 0);
+                @include size-height(auto);
+                @include transition(0.25s ease);
+                // display: block;
+                background-color: $white-color;
+                text-decoration: none;
+
+                &:hover {
+                    @include transition(0.25s ease);
+                    border-color: $primary-color;
+                    // @include prefix(transform, scale(1.01), webkit ms);
+                    border-color: $primary-color;
+                }
+            }
+
+            img {
+                @include sizes(160px, 160px);
+                object-fit: contain;
+            }
+
+
+        }
+
+        &_text {
+            color: $black-color;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            display: block;
+            // @include margin-top(1rem);
+            @include font-scale($font-family, 500, 1.366rem, 1.3);
+            @include margin-bottom(1.5rem);
+        }
+    }
+}
+
+.device__section {
+    @include device__section;
+}

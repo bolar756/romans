@@ -12,6 +12,6 @@ class Register(models.Model):
     size = models.IntegerField()
 
     class Meta:
-        verbose_name_plural = 'Registers'
+        verbose_name_plural = 'Ticket'
     def meta(self):
         return self.name

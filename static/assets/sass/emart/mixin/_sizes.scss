@@ -1,0 +1,32 @@
+@mixin sizes($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin size-width($width) {
+    width: $width;
+}
+
+@mixin size-height($height) {
+    height: $height;
+}
+@mixin max-sizes($max-width, $max-height) {
+    max-width: $max-width;
+    max-height: $max-height;
+}
+
+@mixin max-size-width($max-width) {
+    max-width: $max-width;
+}
+
+@mixin max-size-height($max-height) {
+    max-height: $max-height;
+}
+
+@mixin min-size-width($min-width) {
+    min-width: $min-width;
+}
+
+@mixin min-size-height($min-height) {
+    min-height: $min-height;
+}
