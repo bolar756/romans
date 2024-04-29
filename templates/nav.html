@@ -1,0 +1,18 @@
+<nav>
+    <a href="/" class="logo">Crest</a>
+    <ul class="navbar prevent">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">contact</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'profile' %}">profile</a></li>
+        <li><a href="{% url 'logout' %}">logout</a></li>
+        {% else %}
+        <li><a href="{% url 'login' %}">login</a></li>
+        <li><a href="{% url 'signup' %}">signup</a></li>
+        {% endif%}
+    </ul>
+    <span class="icons" >
+        <i class='bx bx-menu-alt-right' id="menu" onclick="navigator()"></i>
+    </span>
+</nav>

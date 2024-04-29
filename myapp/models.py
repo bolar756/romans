@@ -1,17 +1,15 @@
 from django.db import models
-import uuid , time
+from django.contrib.auth import get_user_model
+User=get_user_model()
+import uuid;
+import datetime
 # Create your models here.
 
-class Register(models.Model):
-    name = models.CharField(max_length=255, default='my_name')
-    regid = models.CharField(max_length=255, default=uuid.uuid4())
-    gdate = models.CharField(max_length=255, default=time.ctime())
-    category = models.CharField(max_length=255,default='category')
-    contact=models.CharField(max_length=255,default='contact')
-    dofbirth = models.CharField(max_length=255,default='December 30 2004')
-    size = models.IntegerField()
+class PaymentInitialization(models.Model):
+        creator = models.ForeignKey(User,  on_delete=models.CASCADE)
+        price= models.IntegerField()
+        time= models.CharField(default=datetime.datetime.now())
+        transactionId= models.CharField(default=uuid.uuid4())
 
-    class Meta:
-        verbose_name_plural = 'Ticket'
-    def meta(self):
-        return self.name
+        def meta(self):
+                return self.creator

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>Profile </title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <link rel="stylesheet" href="{% static  'css/index.css' %}">
+    {% endblock %}
+</head>
+<header></header>
+<body>
+    {% block body %}
+    <div class="container">
+        {% include 'nav.html' %}
+        <div class="profile">
+            <div class="profile-child">
+                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                <div class="wraps">
+                    <div class="childe">profile</div>
+                    <div class="childe">recent activity</div>
+                    <div class="childe">edit profile</div>
+                </div>
+            </div>
+            <div class="profile-elder">
+                <div class="header">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem officiis neque
+                </div>
+                <div class="graph">
+                    <h1>Bio Graph</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/index.js' %}"></script>
+    {% endblock %}
+</body>
+<footer><p></p></footer>
+</html>

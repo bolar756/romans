@@ -1,309 +1,113 @@
+{% extends 'base.html' %}
 {% load static %}
+{% block head %} 
+<title>Crest : Homepage</title>
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+{% endblock %}
 {% block body %}
-<head>
-    <link rel="stylesheet" href="{% static 'css/evals.css' %}">
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
-    <link rel="stylesheet" href="{% static 'css/fur.css' %}">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="http://www.emartio.com/assets/index-c52a8157.css">
-    <link rel="stylesheet" href="http://www.emartio.com/assets/Home-812dbac2.css">
-</head>
-<body>
-    <header class="em--header" >
-        <nav class="em--main-navbar navbar navbar-expand navbar-light"><div class="container">
-            <a href="/" class="em--navbar-brand active navbar-brand">
-          <img  src="{% static 'assets/images/logos/Emart-green.png' %}"  width="150" height="75" alt="Emart Logo" class="img-fluid">
-        </a><button class="em--navbar-toggle-button">
-            <i class="bx bx-menu" onclick="document.querySelector('#menu').classList.toggle('none');document.querySelector('body').toggle('me')"></i>
-        </button>
-        <div class="em--navbar-collapse navbar-collapse collapse" id="basic-navbar-nav">
-            <div class="me-auto em--navbar-nav navbar-nav"><div class="nav-item">
-                <a href="/sell" data-rr-ui-event-key="/sell" class="nav-link">Sell Now</a></div>
-                <div class="nav-item"><a href="/" data-rr-ui-event-key="/" class="active nav-link">Buy Now</a></div><div class="nav-item">
-                    <a href="/evaluation" data-rr-ui-event-key="/evaluation" class="nav-link">Evaluation</a></div><div class="nav-item">
-                        <a href="/about" data-rr-ui-event-key="/about" class="nav-link">About Us</a></div><div class="nav-item">
-                            <a href="/exchange" data-rr-ui-event-key="/exchange" class="nav-link active">Exchange</a>
-                        </div><div class="em--login-button nav-item"><a href="/login" data-rr-ui-event-key="/login" class="nav-link">Login</a>
-                        </div></div></div></div>
-        </nav></header> 
-    <div class="container">
-      <form action="" method="" >
-        <div class="identity"><b>1</b><b>2</b> <b>3</b></div>
-        {% csrf_token %}
-        <section class="sect1">
-            <div class="form">
-            <select name="brand" id="brand" onchange="" class="brand" >
-                <option value="">brand</option>
-                <option value="apple"  red="50">apple</option>
-                <option value="redmi" red="40">Redmi</option>
-                <option value="infinix" red="30">infinix</option>
-                <option value="samsung" red="50">samsung</option>
-                <option value="itel" red="10">itel</option>
-            </select>
-            <div class="sele">
-                <select name="" id="select" aria-readonly="true" readonly>
-                    <option value="">models</option>
-                </select>
-            <select name="iphone" id="select" class="iphoneModels op">
-                <option value="">Select iPhone Model</option>
-            </select>
-            <select name="Redmi" id="select" class="redmimodels op">
-                <option value="redmi">Redmi</option>
-            </select>
-            <select name="infinix" id="select" class="infinix op">
-                    <option value="">Select a  infinix Phone</option>
-                    <option value="Note 40 Pro+" price="309">Infinix Note 40 Pro+</option>
-                    <option value="Note 40 Pro" price="289">Infinix Note 40 Pro</option>
-                    <option value="Note 40 Pro 4G" price ='259'>Infinix Note 40 Pro 4G</option>
-                    <option value="Note 40" price="199">Infinix Note 40</option>
-                    <option value="Smart 8 Plus" price="130">Infinix Smart 8 Plus</option>
-                    <option value="Smart 8 Pro" price="110">Infinix Smart 8 Pro</option>
-                    <option value="Smart 8 (India)" price="120">Infinix Smart 8 (India)</option>
-                    <option value="Smart 8 HD" price="130">Infinix Smart 8 HD</option>
-                    <option value="Hot 40 Pro" price="162">Infinix Hot 40 Pro</option>
-                    <option value="Hot 40" price="150">Infinix Hot 40</option>
-                    <option value="Hot 40i" price="170">Infinix Hot 40i</option>
-                    <option value="Smart 8" price="120">Infinix Smart 8</option>
-                    <option value="Zero 30 4G" price="248">Infinix Zero 30 4G</option>
-                    <option value="Zero 30" price="300">Infinix Zero 30</option>
-                    <option value="GT 10 Pro" price="339">Infinix GT 10 Pro</option>
-                    <option value="Hot 30 5G"price="151">Infinix Hot 30 5G</option>
-                    <option value="Note 30 VIP" price="237">Infinix Note 30 VIP</option>
-                    <option value="Hot 30 Play NFC" price="200">Infinix Hot 30 Play NFC</option>
-                    <option value="Note 30 Pro" price="240">Infinix Note 30 Pro</option>
-                    <option value="Note 30" price="280">Infinix Note 30</option>
-                    <option value="Note 30 5G" price="220">Infinix Note 30 5G</option>
-                    <option value="Note 30i">Infinix Note 30i</option>
-                    <option value="Smart 7 HD">Infinix Smart 7 HD</option>
-                    <option value="Hot 30i">Infinix Hot 30i</option>
-                    <option value="Hot 30">Infinix Hot 30</option>
-            </select>
-            <select name="" id="select" class="infinix op">
-                <option value="">Select a Samsung phone</option>
-                <option value="Samsung Galaxy S21" price="154">Samsung Galaxy S21</option>
-                <option value="Samsung Galaxy S20" price="139">Samsung Galaxy S20</option>
-                <option value="Samsung Galaxy Note 20" price="226">Samsung Galaxy Note 20</option>
-                <option value="Samsung Galaxy S24 Ultra" price="1300">Samsung Galaxy S24 Ultra</option>
-                <option value="Samsung Galaxy S24 | 24+" price="1430">Samsung Galaxy S24 | 24+</option>
-                <option value="Samsung Galaxy Z Fold5" price="1800">Samsung Galaxy Z Fold5</option>
-                <option value="Samsung Galaxy S23 FE" price="420">Samsung Galaxy S23 FE</option>
-                <option value="Samsung Galaxy A25 5G" price="299.99">Samsung Galaxy A25 5G</option>
-            
-            </select>
-            <select name="" id="select" class="infinix op">
-                <option value="">Select Phone</option>
-            <option value="itelVision1" price="90">Itel Vision 1</option>
-            <option value="itelA56" price="65">Itel A56</option>
-            <option value="itelS16" price="250">Itel S16</option>
-            </select>
-        </div>
-        <select class="sim" name="sim-type" id="sim">
-            <option value="">type of sim</option>
-            <option value="" price="6">sim</option>
-            <option value="" price="12">eSim</option>
-        </select>
-        </div>
-            <div class="ded new">
-                <button type="button" onclick="red()">next</button>
+{% for message in messages %}
+<header>{{message}}</header>
+{% endfor %}
+<div class="container">
+<div class="contain">
+    {% if user.is_authenticated %}
+    {% include 'rate.html' %}
+    {% else %}
+    <nav>
+        <a href="/" class="logo">Crest</a>
+        <ul class="navbar prevent">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="#">profile</a></li>
+            <li><a href="{% url 'logout' %}">logout</a></li>
+            {% else %}
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'signup' %}">signup</a></li>
+            {% endif%}
+        </ul>
+        <span class="icons" >
+            <i class='bx bx-menu-alt-right' id="menu" onclick="navigator()"></i>
+        </span>
+    </nav>
+    <section class="hero">
+         <div class="child">
+           <h1>welcome to crest we are currency exchange Experts  </h1>
+            <p>
+                your one-stop destination for hassle-free currency exchange! 
+                Whether you're a traveler exploring new horizons or a business owner
+                 managing international transactions, we've got you covered.
+            </p>
+           <div class="element"></div>
+           <div class="buttons">
+            <button type="submit">submit</button>
+            <button type="submit">Try now</button>
+           </div>
+         </div>
+         <div class="child1">
+          <img src="https://images.pexels.com/photos/534229/pexels-photo-534229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+         </div>
+    </section>
+    <section class="rates">
+         <div class="contain">
+            <h1>Use Cases for Our Currency Exchange Service</h1>
+            <div class="divs">
+                <div class="parents">
+                        <div class="men">
+                            <li><h3>Traveling abroads:</h3> Avoid hidden fees and get competitive exchange rates when you spend
+                                money overseas with your debit or credit card. Our service allows you to easily convert your
+                                home currency to the local currency before your trip, ensuring you know exactly how much you're spending.</li>
+                            <li><h3>Supporting family and friends:</h3> Send money to loved ones living abroad quickly and securely.
+                                 Our platform offers transparent fees and competitive rates, so more of your money reaches them.</li>
+                            <li><h3>Paying for international services:</h3> Do you subscribe to foreign streaming services or pay for online courses offered
+                                 in another currency? Use our service to convert your currency at a favorable rate for seamless international payments.</li>
+                        </div>
+                </div>
+                <div class="parents none">
+                        <div class="men">
+                            <li><h3>Traveling abroa:</h3> Avoid hidden fees and get competitive exchange rates when you spend
+                                money overseas with your debit or credit card. Our service allows you to easily convert your
+                                home currency to the local currency before your trip, ensuring you know exactly how much you're spending.</li>
+                            <li><h3>Supporting family and friends:</h3> Send money to loved ones living abroad quickly and securely.
+                                 Our platform offers transparent fees and competitive rates, so more of your money reaches them.</li>
+                            <li><h3>Paying for international services:</h3> Do you subscribe to foreign streaming services or pay for online courses offered
+                                 in another currency? Use our service to convert your currency at a favorable rate for seamless international payments.</li>
+                        </div>
+                </div>
+                <div class="parents none">
+                        <div class="men">
+                            <li><h3>Traveling abroad:</h3> Avoid hidden fees and get competitive exchange rates when you spend
+                                money overseas with your debit or credit card. Our service allows you to easily convert your
+                                home currency to the local currency before your trip, ensuring you know exactly how much you're spending.</li>
+                            <li><h3>Supporting family and friends:</h3> Send money to loved ones living abroad quickly and securely.
+                                 Our platform offers transparent fees and competitive rates, so more of your money reaches them.</li>
+                            <li><h3>Paying for international services:</h3> Do you subscribe to foreign streaming services or pay for online courses offered
+                                 in another currency? Use our service to convert your currency at a favorable rate for seamless international payments.</li>
+                        </div>
+                </div>
             </div>
-        </section>
-        <section class="act sect2">
-            <select name="" id="">
-                <option value="">choose storage size</option>
-                <option value="34">34</option>
-                <option value="64">64</option>
-                <option value="128">128</option>
-            </select>
-            <select name="" id="">
-                <option value="">months of use</option>
-                <option value="Good">6</option>
-                <option value="average">12</option>
-                <option value="old">18</option>
-                <option value="">24</option>
-            </select>
-            <select name="Condition" id="condition">
-                <option value="">condition of device</option>
-                <option value="Good">Good</option>
-                <option value="average">average</option>
-                <option value="old">old</option>
-            </select>
-            <div class="ded">
-                <button type="button" onclick=" red()">back</button>
-                <button type="submit" onsubmit="train(e)">submit</button>
-            </div>
-        </section>
+         </div>
+         <div class="Parent">
+             <span class="carousel-dot active" data-slide="0" onclick="carousel(0,event)">1</span>
+                    <span class="carousel-dot" data-slide="1" onclick="carousel(1,event)">2</span>
+                    <span class="carousel-dot" data-slide="2" onclick="carousel(2,event)">3</span>
+         </div>
+    </section>
+    <section class="faq">
 
-        <section>
-              </form>
-      <div class="result"></div>
-    </div>
-    <div class="contain none">
-      <b onclick="document.querySelector('.contain').classList.toggle('none')" class="x">X</b>
-        <div class="child">
-            <h3>are you satisfied with the values</h3>
-        </div>
-      <div class="food">
-         <div class="result"></div>has being saved
-      </div>
-     <input type="button" value="save">
-    </div>
-</body>
-</html>
-<script>
-    const select = document.querySelector('.brand')
-    childs = document.querySelectorAll('#select')
-    function martins(a){
-        for (let i = 0; i < childs.length; i++) {
-            const element = childs[i];
-           element.classList.add('op')
-           childs[a].classList.remove('op') 
-        }
-    }
-    select.onchange=  function(){
-        console.log(document.querySelector('select').value);
-         document.querySelector('.result').innerHTML=select.value;
-         const selectedOption = select.options[select.selectedIndex]
-         const attribute1 = selectedOption.getAttribute('red');
-          console.log(attribute1)
-        if  (select.value=='apple'){
-        martins(1)
-        }
-        if  (select.value=='redmi'){
-        martins(2)
-        }  
-        if  (select.value=='infinix'){
-            martins(3)
-        }  
-         if  (select.value=='samsung'){
-            martins(4)
-        }
-        if  (select.value=='itel'){
-            martins(5)
-        }
-    }
-    console.log(document.querySelector('#brand'))
-    select.addEventListener('onchange', function(){
-        console.log(document.querySelector('select').value);
-         document.querySelector('.result').innerHTML=select.value
-    })
-        // Data source: List of Apple iPhones
-        const iphoneModels = [
-            "iPhone 13 Pro Max",
-            "iPhone 13 Pro",
-            "iPhone 13",
-            "iPhone 13 mini",
-            "iPhone 12 Pro Max",
-            "iPhone 12 Pro",
-            "iPhone 12",
-            "iPhone 12 mini",
-            "iPhone SE (2nd generation)",
-            "iPhone 11 Pro Max",
-            "iPhone 11 Pro",
-            "iPhone 11",
-            "iPhone XS Max",
-            "iPhone XS",
-            "iPhone XR",
-            "iPhone X",
-            "iPhone 8 Plus",
-            "iPhone 8",
-            "iPhone 7 Plus",
-            "iPhone 7",
-            "iPhone SE (1st generation)",
-            "iPhone 6s Plus",
-            "iPhone 6s",
-            "iPhone 6 Plus",
-            "iPhone 6",
-            "iPhone 5s",
-            "iPhone 5c",
-            "iPhone 5",
-            "iPhone 4s",
-            "iPhone 4"
-        ];
-
-        // Function to populate the select element with iPhone models
-        function populateiPhoneModels() {
-            const selectElement = document.querySelector('.iphoneModels');
-            iphoneModels.forEach(model => {
-                const option = document.createElement('option');
-                option.value = model;
-                option.textContent = model;
-                selectElement.appendChild(option);
-            });
-        }
-        // Call the function to populate the select element
-        populateiPhoneModels();
-        // Data source: List of Redmi phone models
-        const redmiModels = [
-            "Redmi Note 10",
-            "Redmi Note 10 Pro",
-            "Redmi Note 10 Pro Max",
-            "Redmi Note 9",
-            "Redmi Note 9 Pro",
-            "Redmi Note 9 Pro Max",
-            "Redmi 9",
-            "Redmi 9 Prime",
-            "Redmi 9A",
-            "Redmi 9C",
-            "Redmi 9T",
-            "Redmi 8A",
-            "Redmi 8A Dual",
-            "Redmi 8",
-            "Redmi 7A",
-            "Redmi 7",
-            "Redmi 6A",
-            "Redmi 6",
-            "Redmi 5A",
-            "Redmi 5",
-            "Redmi 4A",
-            "Redmi 4",
-            "Redmi 3S",
-            "Redmi 3S Prime"
-        ];
-
-        // Function to populate the select element with Redmi phone models
-        function populateRedmiModels() {
-            const selectElement = document.querySelector('.redmimodels');
-            redmiModels.forEach(model => {
-                const option = document.createElement('option');
-                option.value = model;
-                option.textContent = model;
-                selectElement.appendChild(option);
-            });
-        }
-function red(){
-    document.querySelector('.sect1').classList.toggle('act')
-    document.querySelector('.sect2').classList.toggle('act')
-}
-        // Call the function to populate the select element
-        populateRedmiModels();
-        let form = document.querySelector('form')
- let brand = document.querySelector('#brand')
- let models = document.querySelector('.sele')
- let sim = document.querySelector('.sim')
- let storage = document.querySelector('size')
- let use = document.querySelector('use')
- let condition= document.querySelector('condition')
- document.querySelector("button[type=submit]").addEventListener("click", (event) => {
-  event.preventDefault();
-  document.querySelector('.contain').classList.toggle('none');
-  document.querySelector('.models').innerText == sim.value
-});
-    </script>
-                                <style>
-                                    .none{
-                                        display: none;
-                                    }
-       </style> 
-       <footer class="em--footer-section" style=""><div class="container"><div class="row"><div class="col-md-12"><div class="em--subscribe-flex"><h4>Sign up to our newsletter!</h4><div class="form-subscribe"><div class="form-group"><input placeholder="Enter your email" type="text" id="subscribe" class="form-control" value="bolarinwamartins79@gmail.com"><span class="error-message"></span></div><button type="button" class="em--primary-button btn btn-primary">Subscribe</button></div></div><div class="em--footer-column"><div class="em--ft-col"><div class="em--ft-logo"><img src="data:image/png;base64,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" width="200" height="100" alt="Emart Footer Logo" class="img-fluid"></div></div><div class="em--ft-col"><h4>Sell Device</h4><ul class="em--ft-list"><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li></ul></div><div class="em--ft-col"><h4>Services</h4><ul class="em--ft-list"><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li></ul></div><div class="em--ft-col"><h4>Company</h4><ul class="em--ft-list"><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li></ul></div><div class="em--ft-col"><h4>Help &amp; Support</h4><ul class="em--ft-list"><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li><li><a href="/" class="em--ft-link">Lorem Ipsum</a></li></ul></div></div></div></div></div></footer>
-        <div role="dialog" aria-modal="true" class="em--mobile-menuSidebar offcanvas offcanvas-start show none" tabindex="-1" style="visibility: visible;" id="menu">
-            <div class="offcanvas-header"><div class="offcanvas-title h5">Menu</div>
-            <button type="button" class="btn-close" aria-label="Close" onclick="document.querySelector('#menu').classList.toggle('none'); document.querySelector('body').toggle('me')"></button></div>
-            <div class="offcanvas-body"><ul class="em--mobile-menu"><li><a class="" href="/sell">Sell Now</a></li>
-              <li><a aria-current="page" class="active" href="/">Buy Now</a></li>
-              <li><a class="" href="/evaluation">Evaluation</a></li>
-              <li><a class="" href="/about">About Us</a></li>
-              <li><a class="" href="/exchange">Exchange</a></li>
-            </ul></div>
-          </div>
-        </div>            
+    </section>
+    <footer>
+        <p></p>
+        </footer>
+    {% endif %}
+</div>
+<footer >
+    <p></p>
+    </footer>
+</div>
+<script src="{% static 'js/rate.js' %}"></script>
+<script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

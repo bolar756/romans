@@ -78,7 +78,8 @@ WSGI_APPLICATION = 'romans.wsgi.application'
 
 DATABASES = {'default': 
              dj_database_url.config
-             (default = 'postgresql://postgres:1Bgfg6-C*4dB*14f61CgCeD-FGfacfA4@monorail.proxy.rlwy.net:31468/railway')}
+             (default = 'postgresql://postgres:iVgPSmFfIfSCkrncEhIURDPeutWVMJkC@monorail.proxy.rlwy.net:24363/railway')}
+
 
 
 

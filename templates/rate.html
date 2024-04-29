@@ -1,0 +1,73 @@
+<div class="container-rate">
+    <section class="rates">
+        <div class="rate-container">
+            <nav>
+                <a href="/" class="logo" >Crest</a>
+                <ul class="navbar prevent">
+                    <li><a href="#">support</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">profile</a></li>
+                    <li><a href="{% url 'logout' %}">logout</a></li>
+                    {% else %}
+                    <li><a href="{% url 'login' %}">login</a></li>
+                    <li><a href="{% url 'signup' %}">signup</a></li>
+                    {% endif%}
+                </ul>
+                <span class="icons" >
+                    <i class='bx bx-menu-alt-right' id="menu" onclick="navigator()"></i>
+                </span>
+            </nav>
+             <div class="parent">
+                 <div class="next">
+                    <form action="" id="form">
+                        <p>exchange currency</p>
+                        <div class="deer">
+                            <label for="" id="label1">amount</label>
+                            <input type="number" name="" id="" oninput="InputChange()" max="5000" min="20">
+                        </div>
+                        <div class="deer">
+                            <label for="#">currency</label>
+                            <select name="currency" id="" onchange="current()" class="select">
+                                <option value="#">select currency</option>
+                                <option value="NGA">Naira</option>
+                                <option value="USD">Dollars</option>
+                                <option value="EUR">euro</option>
+                                <option value="GBP">Pounds</option>
+                            </select>
+                        </div>
+                        <div class="deer">
+                            <label for="#">convert to </label>
+                            <select name="currency1" id="" onchange="stars()" class="select1">
+                                <option value="#">select currency</option>
+                                <option value="NGA">Naira</option>
+                                <option value="USD">Dollars</option>
+                                <option value="EUR">euro</option>
+                                <option value="GBP">Pounds</option>
+                            </select>
+                        </div>
+                        <button type="submit" onclick=" Submitter(event)">exchange</button>
+                    </form>
+                 </div>
+                 <div class="next">
+               <form action="{% url 'payment' %}" class="form" method="post">
+                {% csrf_token %}
+                 <p>Pay $4000</p>
+                 <div class="deer">
+                    <label for="">amount to be paid</label>
+                    <input type="text" name="price" id="" readonly class="price2"></div>
+                 <div class="deer"> <label for="">amount to be received</label>
+                    <input type="text" name="" id="" readonly class="price"></div>
+                 <div class="deer"> <label for="">currency exchanged</label>
+                    <input type="text" name="" id="" readonly class="price1"></div>
+                 <div class="deer"> <label for="">currency to be received</label>
+                    <input type="text" name="" id="" readonly class="price"></div>
+                 <div class="deer"> <label for="">date paid</label>
+                    <input type="text" name="" id="" readonly></div>
+                 <button type="submit">pay <span class="span"></span></button>
+               </form>
+                    
+                 </div>
+             </div>
+
+                   </section>
+</div>

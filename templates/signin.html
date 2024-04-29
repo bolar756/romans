@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+ <title>Login</title>
+ <link rel="stylesheet" href="{% static 'css/login.css' %}">
+ 
+{% endblock %}
+<!-- body  -->
+{% block body %}
+ <div class="martins">
+    {% for message in messages %}
+     <h1>{{message}}</h1>
+    {% endfor %}
+    <form action="{% url 'login' %}" class="form" id="form" method="post" autocomplete="on">
+        {% csrf_token %}
+        <h1>Login</h1>
+       <div class="step2">
+        <input type="text" name="username"  placeholder="username">
+        <input type="password" name="password" id="passwords" placeholder="password">
+        <p><input type="checkbox" name="password1" id="remember">remember password</p>
+        <button type="submit">submit</button>
+        <div class="spin">
+            <b class="act">login</b>
+            <b class="login" id="register" onclick="window.open('/signup', target='_self')">register</b>
+        </div>
+       </div>
+    </form>
+ </div>
+{% endblock %}

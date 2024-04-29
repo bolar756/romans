@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+{% block head %}
+ <title>signup</title>
+ <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+ 
+{% endblock %}
+<!-- body  -->
+{% block body %}
+ <div class="martins">
+    <form action="{% url 'signup' %}"  method="POST">
+        {% csrf_token%}
+        <h1>Signup within seconds</h1>
+        <div class="step1 ">
+            <div class="imgs">
+                <img src="https://outsidein.org/wp-content/uploads/2020/03/person-using-a-laptop.jpg" alt="">
+           </div>
+            <div class="auth">
+                <div class="authors"><a href="">signin with  google <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/768px-Google_%22G%22_logo.svg.png" alt=""></a></div>
+                <div class="authors"><a href="">signin with facebook  <i class='bx bxl-facebook'></i></a></div>
+                <div class="authors"> <a href="" onclick="Signup(event)">sign in with  email <i class='bx bxs-envelope'></i></a></div>
+            </div>
+            <div class="img">
+                 <img src="https://outsidein.org/wp-content/uploads/2020/03/person-using-a-laptop.jpg" alt="">
+            </div>
+        </div>
+       <div class="step2 none">
+        {% for message in messages %}
+        {{message}}
+        {% endfor %}
+        <input type="email" name="username" id="username" placeholder="email">
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="password" name="password1" id="confirm password" placeholder=" confirm password">
+        <p class="terms"><input type="checkbox" name="" id="terms and conditions"><label for="">i agree to the <a href="">terms and conditions</a></label></p>
+        
+        <button type="submit">submit</button>
+        <div class="oauth">
+            <h3 onclick="back()">sign up with  other means <i class='bx bx-right-arrow-alt arrow'></i></h3>
+            </div>
+        </div>
+        <div class="spin none">
+            <b class="act signup">Signup</b>
+            <b class="login" onclick="window.open('/login', target='_self')">login</b>
+        </div>
+       </div>
+    </form>
+    <p class="me">© Crest technologies</p>
+ </div>
+ <script src="{% static 'js/signup.js' %}"></script>
+{% endblock %}
