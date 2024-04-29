@@ -7,8 +7,7 @@ from django.contrib import messages;
 from django.contrib.auth.models import User
 # Create your views here.
 def home(request):
-    date = datetime.MAXYEAR()
-    return render(request,'index.html', context={date:'date'})
+    return render(request,'index.html')
 
 def signup(request):
     if request.method=="POST":
