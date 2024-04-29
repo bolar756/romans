@@ -1,0 +1,153 @@
+.container-rate{
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #00CF74;
+}
+@media (max-width:900px) {
+    .rates nav .logo{
+        margin-left: 100px;
+    }
+}
+.rates nav li a{
+    border-radius:  0;
+    padding:  12px;
+}
+.rates nav .logo{
+    margin-left: 20px;
+}
+.childs i{
+    font-size: 30px;
+}
+.rates .children{
+   min-height:  100vh;
+   padding-top: 20px;
+   padding-left: 40px;
+   padding-right:  20px;
+   background: white;
+}
+.rate-container{
+    width: 100%;
+}
+.parent{
+    background:  #69359C;
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+.parent .next:nth-of-type(odd){
+    width: 40%;
+    min-height: 60vh;
+    background: transparent;
+    border-radius:  12px;
+}
+.next:nth-of-type(even){
+    width: 60%;
+    height:  80vh;
+}
+.next:nth-of-type(even){
+    background: white;
+    border-radius: 30px;
+}
+@media (max-width:930px) {
+    .parent{
+        background:  white;
+        min-height: 100vh;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 30px;
+    }
+    .next:nth-of-type(odd){
+        width: 100%;
+        border-radius: 0;
+    }
+    .next:nth-of-type(even){
+        background: white;
+        min-height:  60vh;
+        width: 100%;
+        border-radius: 0;
+      }
+      .next{
+        border-radius: 0;
+      }
+}
+form{
+    background:  white;
+    display:  flex;
+    flex-direction: column;
+    min-height: 50vh;
+    padding:  30px;
+}
+form input{
+    padding:  12px;
+    border:  2px solid black;
+    transition: .6s ease-in-out;
+}
+#form input:focus{
+    border: 0;
+    border-bottom: 2px solid black;
+    transition: .6s ease-in-out;
+}
+label{
+    margin-top:  12px;
+}
+form select{
+    text-transform: capitalize;
+    font-size:  12px;
+    padding: 0px;
+    height: 5vh;
+}
+.deer{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+ form p{
+    color: black;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: center;
+}
+button[type=submit]{
+    margin-top: 28px;
+    padding:  10px;
+    background:  black;
+    cursor: pointer;
+    color:  white;
+    font-size:  20px;
+    text-transform: capitalize;
+    transition: .6s ease-in;
+    border: 0;
+}
+button[type=submit]:hover{
+    transition: .6s ease-in;
+    background:  white;
+    color: black;
+    border: 2px solid black;
+}
+.pistol{
+    width: 80%;
+    font-size: 15px;
+    min-height: 2vh;
+    border-radius: 12px;
+    padding: 20px;
+    background:   white;
+    color: black;
+    margin-top: 12px;
+}
+.form{
+    border-radius: 20px;
+}
+label{
+    text-transform: capitalize;
+    font-size: 17px;
+}
+button[disabled]{
+    background: #00CF74;
+}
