@@ -26,24 +26,18 @@
      <div class="profile">
         <section class="transaction">
                    {% for  trascation in trasactions %}
-                   {% if trasaction == 0 %}
+                   {% if trasactions == 0  %}
+                   <p>end</p>
+                   {% else %}
+                  <div class="die2"> {{trascation}}</div>
+                   {% endif %}
+                   {% endfor %}
                    <div class="welcome">
                     <h2> {{user}} you have not yet made any transactions</h2>
                      <img src="https://e7.pngegg.com/pngimages/344/673/png-clipart-empty-set-null-set-mathematical-notation-set-notation-mathematics-rim-black-and-white.png" alt="" width="200px">
                       <h2>make your first<h2>
-                     <br><a href="#" class="payments"> transaction</a></br>
+                     <br><a href="/" class="payments"> transaction</a></br>
                  </div>
-                   {% elif trasaction > 0 %}
-                  <div class="die2"> {{trascation}}</div>
-                  {% else %}
-                  <div class="welcome">
-                    <h2> {{user}} you have not yet made any transactions</h2>
-                     <img src="https://e7.pngegg.com/pngimages/344/673/png-clipart-empty-set-null-set-mathematical-notation-set-notation-mathematics-rim-black-and-white.png" alt="" width="200px">
-                      <h2>make your first<h2>
-                     <br><a href="#" class="payments"> transaction</a></br>
-                 </div>
-                   {% endif %}
-                   {% endfor %}
         </section>
         <section class="profile_details none">
             <form action="">

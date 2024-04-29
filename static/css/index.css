@@ -220,19 +220,24 @@ header{
         border-radius: 0;
     }
 }
+.contain{
+    padding:  3px;
+}
 .faq{
     min-height: 10vh;
 }
 .contain h1{
-    color:  black;
+    font-size:  20px;
+    color:  white;
     text-transform: uppercase;
 }
 .divs{
     display: flex;
-    overflow: hidden;
     margin: 0 auto;
-    width: 80%;
-   justify-content: space-between;
+    overflow: hidden;
+   justify-content: center;
+   gap:  40px;
+   align-items: center;
 }
 .sticky{
     transition: .76s ease-in-out;
@@ -248,17 +253,21 @@ header{
 }
 .parents{
     float: left;
-    min-width:  90%;
-     min-height:  60vh;
+    width:  50%;
+     min-height:  20vh;
      display: flex;
      background:  white;
      list-style: circle;
-     padding: 20px;
+     padding: 30px;
      align-self: center;
      margin-top: 30px;
-     box-shadow: 2px 3px 15px var(--secondary);
      border-radius:  20px;
      transition:  .5s ease-in; 
+  }
+  @media(max-width:900px){
+    .parents{
+        width: 75%;
+    }
   }
 .Parent{
     margin: 0 auto;
@@ -345,9 +354,14 @@ header{
     list-style: none;
     padding: 0;
   }
-  
+  footer a {
+    padding:  0;
+    background:  none;
+  }
   .footer__item {
     margin-bottom: 5px;
+    background:  none;
+    padding: 0;
   }
   
   .footer__social {
@@ -356,10 +370,10 @@ header{
     margin-top: 20px;
   }
   
-  .footer__social-icon {
+  .footer__social i {
     margin-right: 10px;
-    font-size: 20px;
-    color: #333;
+    font-size: 30px;
+    color:  black;
   }
   
   /* Media Queries for Responsive Adjustments */
@@ -372,4 +386,7 @@ header{
       flex: auto; /* Allow sections to grow/shrink freely */
     }
   }
-  
+  /*utility classes  */
+  .none{
+    display: none;
+  }
