@@ -3,7 +3,6 @@
 {% block head %} 
 <title>Crest Homepage</title>
 <link rel="stylesheet" href="{% static 'css/index.css' %}">
-<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
 <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 {% endblock %}
 {% block body %}
@@ -12,9 +11,6 @@
 {% endfor %}
 <div class="container">
 <div class="contain">
-    {% if user.is_authenticated %}
-    {% include 'rate.html' %}
-    {% else %}
     <nav>
         <a href="/" class="logo">Crest</a>
         <ul class="navbar prevent">
@@ -26,7 +22,7 @@
             <li><a href="{% url 'logout' %}">logout</a></li>
             {% else %}
             <li><a href="{% url 'login' %}">login</a></li>
-            <li><a href="https://paystack.com/pay/-jd0jai19i">signup</a></li>
+            <li><a href="initiate-payment/">signup</a></li>
             {% endif%}
         </ul>
         <span class="icons" >
@@ -43,7 +39,7 @@
             </p>
            <div class="element"></div>
            <div class="buttons">
-            <button type="submit" style="background: #69359C;" onclick="window.open('/signin' , target='_self')">Try_now</button>
+            <button type="submit" style="background: #69359C;" onclick="window.open('/signin' , target='_self')">Try now</button>
             <button type="submit" style="background: #69359C;" onclick="window.open('/initiate-payment/' , target='_self')">Try Now</button>
            </div>
          </div>
@@ -79,35 +75,19 @@
                 </div>
             </div>
          </div>
-         <div class="Parent">
-                <span class="carousel-dot active" data-slide="0" onclick="carousel(0,event)" ></span>
-                    <span class="carousel-dot" data-slide="1" onclick="carousel(1,event)" style="margin-left: 4px;"></span>
-         </div>
     </section>
     <section class="faq">
         <aside>
             <h1>Frequently Asked Questions</h1>
             <div class="faq-container">
               <div class="faq-item">
-                <h3 class="faq-title">What is an accordion FAQ?</h3>
-                <div class="faq-content">
-                  <p>An accordion FAQ is a list of frequently asked questions (FAQs) presented in a collapsible format. Clicking on a question expands the answer, and clicking again collapses it. This allows users to quickly find the information they need without being overwhelmed by a large amount of text.</p>
-                </div>
-              </div>
-              <div class="faq-item">
-                <h3 class="faq-title">What is an accordion FAQ?</h3>
-                <div class="faq-content">
-                  <p>An accordion FAQ is a list of frequently asked questions (FAQs) presented in a collapsible format. Clicking on a question expands the answer, and clicking again collapses it. This allows users to quickly find the information they need without being overwhelmed by a large amount of text.</p>
-                </div>
-              </div>
-              <div class="faq-item">
-                <h3 class="faq-title">how fast are our payments?</h3>
+                <h3 class="faq-title">how fast are our payments?  <b>+</b></h3>
                 <div class="faq-content">
                   <p>Our payments can take as low as low as 20 minutes to be processed</p>
                 </div>
               </div>
               <div class="faq-item">
-                <h3 class="faq-title">How does this payment work?</h3>
+                <h3 class="faq-title">How does this payment work? <b>+</b></h3>
                 <div class="faq-content">
                   <p> we make use of a series of integrations e.g(stripe , flutterwave ) to make payments lightning fast</p>
                 </div>
@@ -156,9 +136,6 @@
       
         <p class="footer__copyright">© 2024 All Rights Reserved</p>
       </footer>
-      
-    {% endif %}
 </div>
-<script src="{% static 'js/rate.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
 {% endblock %}

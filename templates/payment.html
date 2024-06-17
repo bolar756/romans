@@ -14,15 +14,15 @@
         {% csrf_token %}
         <div class="red">
             <label for="email">Username</label>
-            <input type="email" name="email" id="username">
+            <input type="email" name="email" id="username" required>
         </div>
         <div class="red">
             <label for="Amount">Name</label>
-            <input type="text" name="name" id="password">
+            <input type="text" name="name" id="password" required>
         </div>
         <div class="red">
             <label for="Amount">Amount(NGA)</label>
-            <input type="number" name="amount" id="password">
+            <input type="number" name="amount" id="password" required>
         </div>
         <button type="submit">Submit</button>
        </form>

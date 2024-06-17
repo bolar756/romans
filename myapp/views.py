@@ -2,35 +2,45 @@ from django.shortcuts import render, redirect
 from django.contrib import auth; from django.contrib.auth import login , logout, authenticate; 
 from django.contrib.auth.decorators import login_required
 import datetime
-from .models import PaymentInitialization,Profile, UserWallet, Payment
+from .models import Profile, UserWallet, Payment
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.conf import settings
 from .paystack import Paystack; 
 def home(request):
     if request.user.is_authenticated:
-        return render(request,'cashout.html')
+        wallet = UserWallet.objects.get(owner=request.user.email)
+        return render(request,'cashout.html', context={'wallet':wallet})
     else:
        return render(request,'index.html')
 
+
 def signup(request):
-    if request.method=="POST":
-       username= request.POST['username']
-       password= request.POST['password']
-       password1= request.POST['password1']
-       if password== password1:
-         if  len(password) > 8:
-           deer = User.objects.create_user(username = username, email='',    password=password)
-           deer.save()
-           user = authenticate(request , username= username, email='', password=password)
-           login(request) 
-           messages.success(request,' ✔you have been logged in {}'.format(user))
-           return redirect('profile')
-         else:
-               messages.success(request,'password can not be less than 8')  
-       else :
-          messages.success(request,'password values are not the same')  
-    return render(request,'signup.html')
+    if request.method == "POST":
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+        password1 = request.POST['password1']
+        if Payment.objects.filter(email=email).exists():
+            if User.objects.filter(email=email).exists():
+              messages.error(request, 'Email address already exists.')
+              return render(request, 'signup.html')
+            else:
+              if (password == password1):
+                user = User.objects.create_user(username=username, email=email , password=password)
+                user.save()
+                user = authenticate(request, username=username, password=password)
+                auth.login(request,user)
+                messages.success(request, 'You have been successfully registered and logged in!')
+                return redirect('/')
+              else:
+                   messages.info(request, 'password are not of the same value')
+                   return render(request, 'signup.html')
+        else:
+            return render(request, 'signup.html')      
+    else:
+        return render(request, 'signup.html')
+
 def login(request):
     if request.method =="POST":
        username = request.POST['username']

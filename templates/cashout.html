@@ -4,10 +4,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cashout</title>
+    <link rel="stylesheet" href="{% static 'css/cashout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <p>welcome {{user.username}}</p>
-    {% include 'nav.html' %}
+    <div class="container">
+        <a href="/logout">logout</a>
+            <div class="cont">
+                <b>Welcome {{user.username}}</b>
+            </div>
+            <div class="cont">
+                {% if wallet %}
+                <b>{{wallet.currency}}</b> <b class="balance">{{wallet.balance}}</b>
+                {% endif %}
+            </div>
+            <div class="cont">
+                <b class="pointes">0</b>
+            </div>
+            <div class="reds">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+             <button>
+                gain 30 points today
+             </button>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer__container">
+          <div class="footer__section">
+            <h3 class="footer__section-title">About Us</h3>
+            <div  class="footer__list">
+              <li class="footer__item"><a href="#">Company</a></li>
+              <li class="footer__item"><a href="#">Team</a></li>
+              <li class="footer__item"><a href="#">Careers</a></li>
+              <li class="footer__item"><a href="#">Press</a></li>
+            </div>
+          </div>
+      
+          <div class="footer__section">
+            <h3 class="footer__section-title">Support</h3>
+            <div  class="footer__list">
+              <li class="footer__item"><a href="#">Help Center</a></li>
+              <li class="footer__item"><a href="#">FAQs</a></li>
+              <li class="footer__item"><a href="#">Contact Us</a></li>
+            </div>
+          </div>
+      
+          <div class="footer__section">
+            <h3 class="footer__section-title">Legal</h3>
+            <div  class="footer__list">
+              <li class="footer__item"><a href="#">Terms of Service</a></li>
+              <li class="footer__item"><a href="#">Privacy Policy</a></li>
+              <li class="footer__item"><a href="#">Cookie Policy</a></li>
+            </div>
+          </div>
+      
+          <div class="footer__social">
+            <a href="#" class="footer__social-icon"><i class='bx bxl-facebook-circle' style="color:  blue;"></i></a>
+            <a href="#" class="footer__social-icon"><i class='bx bxl-youtube' style=" color: red;"></i></a>
+            <a href="#" class="footer__social-icon"><i class='bx bxl-whatsapp' style="color: green;"></i></a>
+            <a href="#" class="footer__social-icon"><i class='bx bxl-instagram' style="color:  linear-gradient(to right, blue ,red);"></i></a>
+          </div>
+        </div>
+      
+        <p class="footer__copyright">© 2024 All Rights Reserved</p>
+      </footer>
 </body>
 </html>
+<script>
+   const  points = document.querySelector('.pointes')
+    const button = document.querySelector('button')
+    button.addEventListener('click', function(){
+        points.textContent = parseInt(points.textContent, 10) + 23;
+    })
+</script>

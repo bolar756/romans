@@ -8,15 +8,7 @@ import uuid;
 import datetime
 # Create your models here.
 
-class PaymentInitialization(models.Model):
-        creator = models.ForeignKey(User,  on_delete=models.CASCADE)
-        price= models.IntegerField()
-        time= models.CharField(default=datetime.datetime.now())
-        transactionId= models.CharField(default=uuid.uuid4())
-        status = models.CharField(default='success')
 
-        def meta(self):
-                return self.creator
         
 class Profile(models.Model):
         user = models.ForeignKey(User,  on_delete=models.CASCADE)

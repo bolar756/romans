@@ -313,6 +313,9 @@ header{
     padding: 15px 20px;
     font-weight: bold;
     border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   
   .faq-content {
@@ -357,6 +360,7 @@ header{
   footer a {
     padding:  0;
     background:  none;
+    text-decoration: none;
   }
   .footer__item {
     margin-bottom: 5px;
