@@ -3,9 +3,8 @@
     <ul class="navbar prevent">
         <li><a href="#">Home</a></li>
         <li><a href="#">about</a></li>
-        <li><a href="#">contact</a></li>
+        <li><a href="{% url 'contact' %}">contact</a></li>
         {% if user.is_authenticated %}
-        <li><a href="{% url 'profile' %}">profile</a></li>
         <li><a href="{% url 'logout' %}">logout</a></li>
         {% else %}
         <li><a href="{% url 'login' %}">login</a></li>

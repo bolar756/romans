@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib import auth; from django.contrib.auth import login , logout, authenticate; 
 from django.contrib.auth.decorators import login_required
 import datetime
-from .models import PaymentInitialization,Profile
+from .models import PaymentInitialization,Profile, UserWallet, Payment
 from django.contrib import messages
 from django.contrib.auth.models import User
-# Create your views here.
+from django.conf import settings
+from .paystack import Paystack; 
 def home(request):
-    return render(request,'index.html')
+    if request.user.is_authenticated:
+        return render(request,'cashout.html')
+    else:
+       return render(request,'index.html')
 
 def signup(request):
     if request.method=="POST":
@@ -35,7 +39,7 @@ def login(request):
        if user != None:
         message = messages.success(request,f'welcome {user.username}')
         auth.login(request,user)
-        return redirect('profile')
+        return redirect('/')
        else:
           message = messages.success(request,'user or wrong password')
           return render(request,'signin.html')
@@ -43,18 +47,41 @@ def login(request):
 def logout(request):
     auth.logout(request)
     return redirect('/')
-@login_required(login_url='login')
-def profile(request):
-    trasactions = PaymentInitialization.objects.filter(creator=request.user)
-    return render(request,'profile.html',context={"trasactions":trasactions})
-@login_required(login_url='login')
-def payment(request):
-      return redirect('/')
-@login_required(login_url='login')
-def create_profile(request):
-    if request.method=="POST":
-        Username = request.POST['username'] 
-        email= User.email
-        Userprofile = Profile.objects.create(user=User, email=email, name=Username )
-        Userprofile.save()
-    return render('profile')
+
+def contact(request):
+   return render(request, 'contact.html')
+
+def initiate_payment(request):
+    if request.method == "POST":
+        amount = request.POST['amount']
+        email = request.POST['email']
+        name = request.POST['name']
+
+        pk = settings.PAYSTACK_PUBLIC_KEY
+
+        payment = Payment.objects.create(amount=amount, email=email, Payer=name)
+        payment.save()
+
+        context = {
+            'payment': payment,
+            'field_values': request.POST,
+            'paystack_pub_key': pk,
+            'amount_value': payment.amount,
+        }
+        return render(request, 'make_payment.html', context)
+
+    return render(request, 'payment.html')
+
+def verify_payment(request, ref):
+   payment = Payment.objects.get(ref=ref)
+   verfif = Payment.verify_payment(self=payment)
+   creator = payment.email
+   try: 
+        wallet = UserWallet.objects.get(owner=payment.email)
+        wallet.balance += payment.amount
+        wallet.save()
+   except UserWallet.DoesNotExist:
+          user_wallet = UserWallet.objects.create(owner=payment.email)
+          user_wallet.balance = payment.amount
+          user_wallet.save()
+   return render(request, "success.html", context={'creator':creator})

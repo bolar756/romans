@@ -7,23 +7,31 @@
 {% endblock %}
 <!-- body  -->
 {% block body %}
- <div class="martins">
-    {% for message in messages %}
-     <h1>{{message}}</h1>
-    {% endfor %}
+<!-- i know you are going to looK AT THIS CODE AND THINK WHICH IDIOT WROTE THIS  Make the coed simple and minimal-->
+ <div class="container">
+   
     <form action="{% url 'login' %}" class="form" id="form" method="post" autocomplete="on">
         {% csrf_token %}
         <h1>Login</h1>
-       <div class="step2">
-        <input type="text" name="username"  placeholder="username">
-        <input type="password" name="password" id="passwords" placeholder="password">
-        <p><input type="checkbox" name="password1" id="remember">remember password</p>
-        <button type="submit">submit</button>
-        <div class="spin">
-            <b class="act">login</b>
-            <b class="login" id="register" onclick="window.open('/signup', target='_self')">register</b>
+        <div class="wrap">
+            <label for="username">Username</label>
+            <input type="text" name="username" >
         </div>
-       </div>
+        <div class="wrap">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="passwords" >
+        </div>
+            <p class="hide">don't have an account  <a href="/signup"> signup</a></p>
+        <button type="submit">submit</button>
     </form>
+    {% for message in messages %}
+    <div class="message">{{message}}</div>
+    {% endfor %}
  </div>
+ <script>
+    function wronget(){
+        document.querySelector('.message').parentElement.remove()
+    }
+    setTimeout(wronget(), 200)
+ </script>
 {% endblock %}

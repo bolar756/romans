@@ -72,7 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'romans.wsgi.application'
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
-SESSION_COOKIE_AGE = 60 * 30
+SESSION_COOKIE_AGE = 160 * 30
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
-
+APPEND_SLASH=False
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -130,3 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL='/media/'
 MEDIA_ROOT=(os.path.join(BASE_DIR,'/media/'))
+
+PAYSTACK_SECRET_KEY = "sk_test_8960495787ccb445eac3f35b6bcae21a8e54de10"
+PAYSTACK_PUBLIC_KEY = "pk_test_587b4285386c794cc4b52028424516000682ee4b"

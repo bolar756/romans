@@ -6,7 +6,7 @@ urlpatterns = [
     path('signup', views.signup, name='signup'),
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
-    path('profile', views.profile, name='profile'),
-    path('payment',views.payment,name='payment'),
-    path('create_profile',views.payment , name= 'create_profile')
+    path('contact', views.contact, name='contact'),
+   path('initiate-payment/', views.initiate_payment, name='initiate_payment'),
+    path('verify-payment/<str:ref>/', views.verify_payment, name='verify_payment'),
     ]

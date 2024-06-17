@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    <form action="{% url  'initiate_payment' %}" method="post">
+        <h1>Fund your Account</h1>
+        {% csrf_token %}
+        <div class="red">
+            <label for="email">Username</label>
+            <input type="email" name="email" id="username">
+        </div>
+        <div class="red">
+            <label for="Amount">Name</label>
+            <input type="text" name="name" id="password">
+        </div>
+        <div class="red">
+            <label for="Amount">Amount(NGA)</label>
+            <input type="number" name="amount" id="password">
+        </div>
+        <button type="submit">Submit</button>
+       </form>
+    </div>
+</body>
+</html>

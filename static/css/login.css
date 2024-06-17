@@ -1,144 +1,106 @@
-:root{
-    --primary:  #69359C;
-    --secondary:  #FFF44F;
-    --headers: #00CF74;
-    --fonts: #000914;
-    --primary2: white;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
-.none{
-    display:  none;
+body{
+    background: black;
 }
-.martins{
-    min-height:  100vh;
-    width:  100%;
-    display:  flex;
+.container{
+    background-color:  white;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
-    background:  var(--primary);
     align-items: center;
     justify-content: center;
 }
 form{
-    box-shadow:  2px 5px 10px;
-    width:  80%;
-    min-height:  80vh;
-    padding:  20px;
-    background:  var(--primary2);
-}
-.step1{
-    display:  flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.step1 img{
-     width: 700px;
-}
-.step1 .authors a{
     display: flex;
-    background:  green;
-    padding:  40px;
-    margin-top:  30px;
-    text-transform: capitalize;
-    font-size: 20px;
-    justify-content: space-between;
-    font-weight: 500;
-    min-width:  250px;
-    max-width:  max-content;
-    border-radius:  125px;
-}
-.step1.none{
-    display:  none;
-}
-.authors a:hover{
-    box-shadow:  3px 5px 12px;
-}
-.authors a{
-    text-decoration: none;
-    color: #000914;
-}
-input:focus{
-    transition: .3s ease-in;
-    border-radius: 0;
-    border-bottom:  2px solid var(--primary);
-}
-h1 {
-    font-size: 3em;
-    color: #fff; /* Text color */
-    -webkit-text-stroke: 2px var(--primary); /* Text stroke */
-    padding-left:  40px;
-}
-.authors img{
-    width: 30px;
-}
-.bxl-facebook{
-    color: blue;
-    padding:  6px;
-    width: 20px;
-    height:  20px;
-    border-radius:  50%;
-    background: white;
-    display:  flex;
-    align-items:  center;
-    justify-content: center;
-}
-i{
-    color:  white;
-    font-size:  30px;
-}
-.step2{
-    margin-top:  30px; 
-    display:  flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap:  40px;
-    justify-content: center;
-    min-height:  60vh;
-    background: white;
+    background: purple;
+    width: 40%;
+    min-height: 50vh;
+    padding: 20px;
+    backdrop-filter: blur(12px);
+    box-shadow: 2px 4px 7px black;
+    border-radius:  12px ;
 }
-.step2  input{
-    padding:  20px;
-    border-radius:  120px;
-    outline: 0;
-    border:  1px solid black;
-    font-size: 20px;
-}
-::placeholder{
-    color: black;
-    text-transform: uppercase;
-    font-size:  15px;
-    font-weight:  500;
-}
-.step2 button{
-    text-transform:  capitalize;
-    border-radius: 30px;
-    padding:  18px;
-    background: var(--primary);
-    box-shadow:  3px 5px 12px ;
-    border: 0;
-    font-size:  25px;
-    font-weight: 500;
-}
-.spin{
+.red{
+    margin-top: 10px;
     display: flex;
-    justify-content: space-between;
-    padding:  30px;
+    flex-direction: column;
 }
-.spin b{
-    border:  2px solid var(--fonts);
-    padding:  18px 27px;
-    border-radius:  120px;
-    cursor: pointer;
+label{
+    color: white;
+}
+input[type=text], input[type=password], input[type=email]{
+    width: 100%;
+    font-size: 15px;
+}
+input[type=text]:focus, input[type=password]:focus{
+    border: 0;
+    border-bottom: 2px solid black;
+    outline: 0;
+}
+input, button{
+    display: block;
+    margin-top:  20px;
+    height: 40px;
+    padding: 2px;
+}
+button{
+    width: 100%;
+    padding: 20px;
+    height: 50px;
+    background: black;
+    display: flex;
+    color: white;
+    font-size: 23px;
+    align-items: center;
+    justify-content: center;
     text-transform: capitalize;
+    border: 0;
+    margin-top: 30px;
+    box-shadow: 2px 4px 7px black;
+    margin-bottom: 30px;
 }
-input[type=checkbox] , input[type=radio]{
-    width:  25px;
-    height: 25px;
- }
-.spin b:hover{
-   background: #69359C;
-   border: 3px solid white;
-   transition: all .6s ease-in;
+.mess{
+    color: black;
+    position: fixed;
+    align-self: center;
+    background:  white;
+    box-shadow: 2px 5px 7px green;
+    top: 1px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.act{
-    background:  var(--primary);
+.hide{
+    text-transform: capitalize;
+    font-size: 23px;
+    margin-top: 20px;
+}
+.hide a{
+    color:  white;
+}
+.wrap{
+    margin-top: 20px;
+}
+.wrap label{
+    text-transform: capitalize;
+    font-size: 23px;
+    font-weight: 600;
+}
+@media (max-width:800px){
+    form{
+        width: 80%;
+    }
+}
+.message{
+    position: absolute;
+    top: 0;
+    padding: 20px;
+    background: green;
 }
