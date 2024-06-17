@@ -36,9 +36,8 @@
     <p class="me">© Crest technologies</p>
  </div>
  <script>
-    function wronget(){
-        document.querySelector('.message').parentElement.removeChild()
-    }
-    setTimeout(wronget(), 2000)
+  setTimeout(function(){
+    document.querySelector('.message').innerText=null
+  }, 3000)
  </script>
 {% endblock %}

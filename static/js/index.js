@@ -86,20 +86,6 @@ const targetCurrency = "NGN";
 // Build the API endpoint URL with your key, base, and target currencies
 const url = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${baseCurrency}/${targetCurrency}`;
 
-// fetch(url)
-//   .then(response => response.json()) // Parse the JSON response
-//   .then(data => {
-//     // Access the conversion rate
-//     const conversionRate = data.conversion_rate;
-//     console.log(`1 ${baseCurrency} = ${conversionRate} ${targetCurrency}`);
-//     document.querySelector('#text').value=conversionRate
-//   })
-//   .catch(error => console.error(error));
-// Not recommended - frequent refreshes can be bad for performance
-// function refreshPage() {
-//   window.location.reload('/', target='_self'); // Reloads the current page
-// }
-// setInterval(refreshPage, 8300); // Call refresh function every 300 milliseconds
 
 const carouselI= document.querySelectorAll('.rates .parents') 
 const Carousel = document.querySelector('.divs')

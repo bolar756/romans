@@ -17,19 +17,14 @@ integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbs
 	<div class="container">
     <section >
         <div>
-          
-          <section class="w-100 p-4 d-flex justify-content-center pb-4">
-    
+          <section style="padding: 30px">
                 <transaction>You are about to fund your wallet with {{ payment.amount }} and transaction reference {{ payment.ref }}</p>
 					<p>With email {{payment.email}}</p>
 					<p>only emails which are verified subscribers will be allowed to signup</p>
     
-                <button onclick="payWithPaystack()" class="btn btn-primary btn-block mb-4">Fund</button>
-            </section>
-           
-        </div>
-        
-        
+                <button onclick="payWithPaystack()">Fund</button>
+            </section>       
+        </div>       
       </div>
     </section>
 </div>

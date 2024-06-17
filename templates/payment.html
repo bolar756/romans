@@ -13,16 +13,16 @@
         <h1>Fund your Account</h1>
         {% csrf_token %}
         <div class="red">
-            <label for="email">Username</label>
+            <label for="email">Email</label>
             <input type="email" name="email" id="username" required>
         </div>
         <div class="red">
             <label for="Amount">Name</label>
-            <input type="text" name="name" id="password" required>
+            <input type="text" name="name" id="password" required >
         </div>
         <div class="red">
             <label for="Amount">Amount(NGA)</label>
-            <input type="number" name="amount" id="password" required>
+            <input type="number" name="amount" id="password" readonly value="300000" placeholder='3000'>
         </div>
         <button type="submit">Submit</button>
        </form>
