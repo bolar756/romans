@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cashout</title>
     <link rel="stylesheet" href="{% static 'css/cashout.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+  <nav class="header">
+    <a href="/" class="logo">Crest</a>
+    <ul class="none">
+      <li><a href="logout">logout</a></li>
+      <li><a href="">withdraw</a></li>
+      <li><a href="contact">contact</a></li>
+      <li><a href="">{{user.username}}</a></li>
+    </ul>
+    <div class="icon ">
+      <i class='bx bx-menu menu'></i>
+    </div>
+  </nav>
     <div class="container">
-        <a href="/logout">logout</a>
-            <div class="cont">
-                <b>Welcome {{user.username}}</b>
-            </div>
             <div class="cont">
                 {% if wallet %}
                 <b>{{wallet.currency}}</b> <b class="balance">{{wallet.balance}}</b>
@@ -31,7 +40,7 @@
                     <li></li>
                 </ul>
             </div>
-             <button>
+             <button onclick="triggerWebhook(340)">
                 gain 30 points today
              </button>
     </div>
@@ -84,4 +93,85 @@
     button.addEventListener('click', function(){
         points.textContent = parseInt(points.textContent, 10) + 23;
     })
+    const menu = document.querySelector('.icon i')
+    const Parent = document.querySelector('.header ul')
+    const body = document.querySelector('body')
+    menu.addEventListener('click',function(){
+        if( menu.classList.contains('bx-menu') == true){
+             menu.classList.remove('bx-menu')
+             menu.classList.add('bx-x')
+             Parent.classList.remove('none')
+             body.classList.add('no-scroll')
+        }
+        else{
+            menu.classList.remove('bx-x')
+            menu.classList.add('bx-menu')
+            Parent.classList.add('none')
+            body.classList.remove('no-scroll')
+        }
+    })
 </script>
+<script  src="{% static 'js/profile.js' %}"></script>
+<style>
+*{
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: black;
+}
+ul , ul.none{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 90px;
+}
+.header ul li a{
+    margin-left: 20px;
+    color: white;
+    text-transform: uppercase;
+}
+a.logo{
+    text-transform: uppercase;
+}
+footer li a{
+    text-transform: capitalize;
+    color: black;
+}
+.icon i{
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+}
+.icon{
+    display: none;
+}
+.no-scroll{
+    overflow: hidden;
+}
+@media (max-width:980px) {
+    .header ul{
+        position: absolute;
+        width: 100%;
+        height: 93vh;
+        top: 7vh;
+        left: 0;
+        background: black;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       color: white;
+    }
+    .icon{
+        display: block;
+    }
+    ul.none{
+        display: none;
+    }
+    .header ul li{
+        margin-top: 40px;
+    }
+}
+</style>

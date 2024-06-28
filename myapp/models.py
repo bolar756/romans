@@ -30,6 +30,14 @@ class UserWallet(models.Model):
     def __str__(self):
         return self.owner.__str__()
 
+class Points(models.Model):
+    user = models.ForeignKey(User,  on_delete=models.CASCADE)
+    value= models.IntegerField()
+    last_run = models.DateTimeField(auto_now_add=True)
+
+    def meta(self):
+        return self.id , self.value
+    
 class Payment(models.Model):
     Payer = models.CharField(max_length=200, default='marty')
     amount = models.PositiveIntegerField()

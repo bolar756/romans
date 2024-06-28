@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <title>contact</title>
+</head>
+<body>
+    <div class="contact">
+        <h1>Contact Us </h1>
+        <form action="" method="post">
+            {% csrf_token  %}
+            <div class="divider">
+                <label for="email">Email</label>
+                <input type="email" name="" id="">
+            </div>
+            <div class="divider">
+                <label for="email">Subject</label>
+                <input type="text" name="" id="">
+            </div>
+            <div class="divider">
+                <label for="email">complaint</label>
+                <textarea name="" id="" ></textarea>
+            </div>
+            <div class="divider"><button type="submit" >Submit</button></div>
+        </form>
+        <b>© Copyright Crest Technoogies</b>
+    </div>
+</body>
+</html>
+<script src="{% static 'js/rate.js' %}"></script>

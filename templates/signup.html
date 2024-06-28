@@ -16,7 +16,7 @@
         {% endfor %}
         <div class="wrap">
             <label for="username">email</label>
-            <input type="email" name="email" id="username" >
+            <input type="email" name="email" id="username"  value="{{creator}}" readonly>
         </div>
         <div class="wrap">
             <label for="username">username </label>
@@ -40,4 +40,9 @@
     document.querySelector('.message').innerText=null
   }, 3000)
  </script>
+ <style>
+    ::placeholder{
+        color: black;
+    }
+ </style>
 {% endblock %}

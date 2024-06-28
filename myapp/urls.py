@@ -7,6 +7,7 @@ urlpatterns = [
     path('login', views.login, name='login'),
     path('logout', views.logout, name='logout'),
     path('contact', views.contact, name='contact'),
-   path('initiate-payment/', views.initiate_payment, name='initiate_payment'),
+    path('initiate-payment/', views.initiate_payment, name='initiate_payment'),
     path('verify-payment/<str:ref>/', views.verify_payment, name='verify_payment'),
+    path('increase/',views.webhook, name='increase')
     ]

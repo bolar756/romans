@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponse ,JsonResponse
 from django.contrib import auth; from django.contrib.auth import login , logout, authenticate; 
 from django.contrib.auth.decorators import login_required
-import datetime
-from .models import Profile, UserWallet, Payment
+import datetime , json
+from .models import Profile, UserWallet, Payment ,Points
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.conf import settings
 from .paystack import Paystack; 
+from django.views.decorators.csrf import csrf_exempt
 def home(request):
     if request.user.is_authenticated:
         wallet = UserWallet.objects.get(owner=request.user.email)
@@ -25,6 +27,9 @@ def signup(request):
             if User.objects.filter(email=email).exists():
               messages.error(request, 'Email address already exists.')
               return render(request, 'signup.html')
+            if User.objects.filter(username=username).exists():
+               messages.error(request, 'user address already exists.')
+               return render(request, 'signup.html')
             else:
               if (password == password1):
                 user = User.objects.create_user(username=username, email=email , password=password)
@@ -92,6 +97,23 @@ def verify_payment(request, ref):
         wallet.save()
    except UserWallet.DoesNotExist:
           user_wallet = UserWallet.objects.create(owner=payment.email)
-          user_wallet.balance = payment.amount
+          user_wallet.balance = 3000.00
           user_wallet.save()
-   return render(request, "success.html", context={'creator':creator})
+   return render(request, "signup.html", context={'creator':creator})
+
+def contact(request):
+     return render(request, 'contact.html')
+
+@csrf_exempt
+def webhook(request):
+  if request.method == 'POST':
+    try:
+      data = json.loads(request.body)
+      peed = Points.objects.create(user=request.user, value=data['data'])
+      return JsonResponse('Webhook received successfully!', status=200)    
+    except (json.JSONDecodeError,  ValueError) as e:
+      return HttpResponse(f'Invalid data: {e}')
+    except Exception as e:
+      return HttpResponse(f'An error occurred: {e}')
+  else:
+    return HttpResponse('Invalid request method. Only POST allowed.', status=405)
