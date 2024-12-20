@@ -7,7 +7,7 @@
 {% endblock %}
 <!-- body  -->
 {% block body %}
- <div class="container">
+ <div class="container" hidden>
     <form action="{% url 'signup' %}"  method="POST">
         {% csrf_token%}
         <h1>Signup within seconds</h1>
@@ -16,7 +16,7 @@
         {% endfor %}
         <div class="wrap">
             <label for="username">email</label>
-            <input type="email" name="email" id="username"  value="{{creator}}" readonly>
+            <input type="email" name="email" id="username"  value="{{creator}}" >
         </div>
         <div class="wrap">
             <label for="username">username </label>
@@ -34,6 +34,22 @@
         <button type="submit">submit</button>
     </form>
     <p class="me">© Crest technologies</p>
+ </div>
+ <div class="form">
+    <form action="signup" method="post">
+        {% for message in messages %}
+    <div class="message"> <p>{{message}} </p> 
+    <p onclick ="document.querySelector('.message').classList.toggle('none')" >&times;</p></div>
+    {% endfor %}
+     {% csrf_token %}
+     <h1 class="padded">Crest</h1>
+     <h1>Sign up</h1>
+      <input type="text" name="name" id="" placeholder="username" class="values">
+     <input type="email" name="email" id="" placeholder="email" class="values">
+     <input type="password" name="password" id="" placeholder="password" class="values">
+     <input type="password" name="password1" id="" placeholder="confirm password" class="values">
+     <button type="submit">signup</button>
+    </form>
  </div>
  <script>
   setTimeout(function(){

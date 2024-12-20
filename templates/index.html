@@ -14,9 +14,8 @@
     <nav>
         <a href="/" class="logo">Crest</a>
         <ul class="navbar prevent">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contact">contact</a></li>
             {% if user.is_authenticated %}
             <li><a href="#">profile</a></li>
             <li><a href="{% url 'logout' %}">logout</a></li>
@@ -31,16 +30,16 @@
     </nav>
     <section class="hero">
          <div class="child">
-           <h1>welcome to crest we are currency exchange Experts  </h1>
+           <h1> Earn Daily Rewards, Convert to Cash!</h1>
             <p>
-                your one-stop destination for hassle-free currency exchange! 
-                Whether you're a traveler exploring new horizons or a business owner
-                 managing international transactions, we've got you covered.
+              Get 500 points daily just for logging in! Accumulate points
+               effortlessly and convert them into real dollars. Start 
+               earning today and turn your daily rewards into extra cash.
             </p>
            <div class="element"></div>
            <div class="buttons">
             {% comment %} <button type="submit" style="background: #69359C;" onclick="window.open('/login' , target='_self')"></button> {% endcomment %}
-            <button type="submit" style="background: #69359C;" onclick="window.open('/initiate-payment/' , target='_self')">Pay Now</button>
+            <button type="submit" style="background: #69359C;" onclick="window.open('/signup' , target='_self')">signup Now</button>
            </div>
          </div>
          <div class="child1">
@@ -49,17 +48,19 @@
     </section>
     <section class="rates">
          <div class="contain">
-            <h1>Use Cases for Our Currency Exchange Service</h1>
+            <h1>Use Cases for Our points</h1>
             <div class="divs">
                 <div class="parents parents1">
                         <div class="men">
-                            <li><h3>Traveling abroads:</h3> Avoid hidden fees and get competitive exchange rates when you spend
+                            <li><h3>Traveling abroads:</h3> 
+                              Avoid hidden fees and get competitive exchange rates when you spend
                                 money overseas with your debit or credit card. Our service allows you to easily convert your
                                 home currency to the local currency before your trip, ensuring you know exactly how much you're spending.</li>
-                            <li><h3>Supporting family and friends:</h3> Send money to loved ones living abroad quickly and securely.
+                            <li><h3>Supporting family and friends:</h3> 
+                              Send money to loved ones living abroad quickly and securely.
                                  Our platform offers transparent fees and competitive rates, so more of your money reaches them.</li>
                             <li><h3>Paying for international services:</h3> Do you subscribe to foreign streaming services or pay for online courses offered
-                                 in another currency? Use our service to convert your currency at a favorable rate for seamless international payments.</li>
+                                 in another currency? Use our points as couponjs for you other expenses.</li>
                         </div>
                 </div>
                 <div class="parents none parents2">

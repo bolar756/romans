@@ -4,7 +4,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
-    background: linear-gradient(to right , rgba(0,0,201,.7), rgba(12,34,224,.3));
+    background: wheat;
 }
 .contact{
     height: 100vh;
@@ -36,7 +36,7 @@ textarea{
 button{
  text-transform:  uppercase;   
   height: 60px;
-  background: rgba(12,34,224,.3);
+  background: #9644ff;
   border: 0;
   box-shadow: 3px 4px 7px;
 }

@@ -1,106 +1,128 @@
+:root{
+    --primary: #FFF5E4;
+    --secondary: #CD5C08;
+    --tertiary1: #C1D8C3;
+    --tertiary2: #6A9C89;
+    --random: #000;
+}
+:clr{
+    --background: #032B44;
+    --text: #FFFFFF;
+    --button: #FF3737;
+}
+:footer{
+--fbackground: #032B44;
+--ftext: #FFFFFF;
+--Links: #FF3737;
+}
 *{
     padding: 0;
     margin: 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+footer{
+    display: none;
 }
 body{
-    background: black;
+    background:  wheat;
+    height: 100vh;
 }
-.container{
-    background-color:  white;
-    width: 100%;
-    min-height: 100vh;
+.padded{
+    color: var(--tertiary2);
+    background: #9644ff;
+    min-width: 70px;
+    height: 180px;
+    width: 180px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+    box-shadow: 2px 4px 6px black;
+    margin-top: 20px;
+}
+.form{
+    background: transparent;
+    backdrop-filter: blur(30px);
+    height: 100vh;
+    width: 50%;
+    margin-left: 25%;
 }
 form{
-    display: flex;
-    flex-direction: column;
-    background: purple;
-    width: 40%;
-    min-height: 50vh;
-    padding: 20px;
-    backdrop-filter: blur(12px);
-    box-shadow: 2px 4px 7px black;
-    border-radius:  12px ;
-}
-.red{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: column;
-}
-label{
-    color: white;
-}
-input[type=text], input[type=password], input[type=email]{
     width: 100%;
-    font-size: 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+   gap: 10px;
+   height: 100vh;
 }
-input[type=text]:focus, input[type=password]:focus{
-    border: 0;
-    border-bottom: 2px solid black;
-    outline: 0;
-}
-input, button{
-    display: block;
-    margin-top:  20px;
+input[type=password] , input[type=email],input[type=text]{
+    width: 60%;
+    padding: 10px;
     height: 40px;
-    padding: 2px;
+    border: 0;
+}
+input[type=checbox]{
+    width: 300px;
+    height: 30px;
+}
+.values:focus{
+ border-bottom: 2px solid --primary;
+ border-radius: 0;
+ transition: .6s ease-in-out;
+ outline: 0;
 }
 button{
-    width: 100%;
-    padding: 20px;
-    height: 50px;
-    background: black;
-    display: flex;
-    color: white;
-    font-size: 23px;
-    align-items: center;
-    justify-content: center;
+    width: 63%;
+    height: 60px;
+    padding: 10px;
     text-transform: capitalize;
     border: 0;
-    margin-top: 30px;
-    box-shadow: 2px 4px 7px black;
-    margin-bottom: 30px;
-}
-.mess{
-    color: black;
-    position: fixed;
-    align-self: center;
-    background:  white;
-    box-shadow: 2px 5px 7px green;
-    top: 1px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.hide{
-    text-transform: capitalize;
-    font-size: 23px;
-    margin-top: 20px;
-}
-.hide a{
-    color:  white;
-}
-.wrap{
-    margin-top: 20px;
-}
-.wrap label{
-    text-transform: capitalize;
-    font-size: 23px;
-    font-weight: 600;
-}
-@media (max-width:800px){
-    form{
-        width: 80%;
-    }
+    background: #9644ff;
+    box-shadow: 2px 3px 4px black;
+    color: white;
+    cursor: pointer;
 }
 .message{
     position: absolute;
-    top: 0;
-    padding: 20px;
-    background: green;
+    top: 80px;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    font-size: 20px;
+    text-transform: capitalize;
+    background: wheat;
+    left: 0px;box-shadow: 0px 2px 4px black;
+    animation:  reds .6s ;
+}
+.message.none{
+    display: none;
+}
+@keyframes reds {
+    0%{
+        transform: translateY(-80px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+@media (max-width: 960px) {
+   .form{
+    width: 100%;
+    margin-left: 0;
+    background: #9644ff;
+   }
+   .padded{
+    background: wheat;
+   }
+   button{
+    background: wheat;
+    color: black;
+    font-size: 20px;
+   }
+}
+input::placeholder{
+  color: black;
+  font-size: 20px;
+  text-transform: capitalize;
 }

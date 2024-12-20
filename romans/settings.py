@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp'
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +80,7 @@ SESSION_COOKIE_AGE = 160 * 30
 DATABASES = {'default': 
              dj_database_url.config
              (default = 'postgresql://postgres:iVgPSmFfIfSCkrncEhIURDPeutWVMJkC@monorail.proxy.rlwy.net:24363/railway')}
+
 
 
 

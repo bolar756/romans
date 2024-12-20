@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{user.username}} profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    <div class="redd">
+        <form action="update_profile" method="post">
+            {% csrf_token %}
+            <div class="wrap">
+                <label for="first_name">First name</label>
+                <input type="text" name="fname" id="first_name" value="{{user.first_name}}">
+            </div>
+            <div class="wrap">
+                <label for="last_name"> last name</label>
+                <input type="text" name="lname" id="last_name" value="{{user.last_name}}">
+            </div>
+            <div class="wrap">
+                <label for="email">email</label>
+                 <input type="email" name="email" id="email" value="{{user.email}}">
+            </div>
+            <div class="wrap">
+                <label for="username">username</label>
+                <input type="text" name="uname" id="username" value="{{user.username}}" >
+            </div>
+            <div class="wrap">
+                <label for="doj">date joined</label>
+                <input type="datetime" name="" id="doj" value="{{user.date_joined}}" disabled>
+            </div>
+            <div class="wrap">
+                <label for="aza">Account number</label>
+                <input type="text" name="aza" id="aza" value="{{cont}}" >
+            </div>
+            <div class="wrap"><button type="submit">submit</button></div>
+        </form>
+       <div class="message" style="position: absolute; top: 0; padding: 20px; text-transform: capitalize;" onclick="document.querySelector('.message').remove()">
+           {% for message in messages %}
+            {{message}}
+            {% endfor %}
+       </div>
+    </div>
+</body>
+</html>

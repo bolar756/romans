@@ -1,0 +1,112 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>claim points</title>
+    <link rel="stylesheet" href="{% static  'css/page.css' %}">
+    <link rel="stylesheet" href="{% static  'css/nav.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <nav class="header">
+        <a href="/" class="logo">Crest</a>
+        <ul class="none">
+         
+          <li><a href="#withdraw" id="withdraw" onclick="fish()">withdraw</a></li>
+          <li><a href="contact">contact</a></li>
+          <li><a href="">{{user.username}}</a></li>
+           <li><a href="logout">logout</a></li>
+        </ul>
+        <div class="icon ">
+          <i class='bx bx-menu menu'></i>
+        </div>
+      </nav>
+      <div class="container">
+        <div class="points">
+           <p>{{vale}}</p>
+           <div class="button">
+            {% if vale == None %}
+            <button onclick="document.querySelector('.followup').classList.toggle('none')">Activate account</button>
+            {% else %}
+            <form action="{% url 'createpoints' %}" method="post">
+                {% csrf_token %}
+               <button >claim daily points</button>
+            </form>
+               <button onclick="window.open('/page#withdraw' , target='_self'), fish() ">withdraw</button>
+               {% endif %}
+           </div>
+        </div>
+        <div class="table">
+           <div class="table-head"><p>date</p> <p>points</p></div>
+           {% for points in point %}
+            <div class="table-row"><p>{{points.date}}</p> <p>{{points.points}}</p></div>
+           {% endfor %}
+        </div>
+      </div>
+      <div class="followup none">
+        <div class="message">
+            <h1>Payment</h1>
+            <p>please make a payment to the following bank account</p>
+            <p>account number: 1234567890</p>
+            <p>name: crest technologies</p>
+            <p>after that send a receipt to this email using the email used in creating your account</p>
+            <p>within 24hrs your account will be activated</p>
+        </div>
+      </div>
+      <div class="popups none">
+        <p>withdraw when you reach 100 000 points </p>
+        <p onclick="document.querySelector('.popups').classList.toggle('none')" style="cursor: pointer;">&times;</p>
+      </div>
+      {% for message in messages %}
+      <div class="messag" id="message">
+        <p>{{message}}</p>
+      <p onclick="showMessage()" style="cursor: pointer;">&times;</p>
+      </div>
+       {% endfor %}
+</body>
+<script >
+    document.querySelector('.followup').addEventListener('click', function(event) {
+      if (event.target && event.target.matches('.followup')) {
+          document.querySelector('.followup').classList.toggle('none')
+      }
+    });
+</script>
+<script>
+    const  points = document.querySelector('.pointes')
+     const button = document.querySelector('button')
+     button.addEventListener('click', function(){
+         points.textContent = parseInt(points.textContent, 10) + 23;
+     })
+     const menu = document.querySelector('.icon i')
+     const Parent = document.querySelector('.header ul')
+     const body = document.querySelector('body')
+     menu.addEventListener('click',function(){
+         if( menu.classList.contains('bx-menu') == true){
+              menu.classList.remove('bx-menu')
+              menu.classList.add('bx-x')
+              Parent.classList.remove('none')
+              body.classList.add('no-scroll')
+         }
+         else{
+             menu.classList.remove('bx-x')
+             menu.classList.add('bx-menu')
+             Parent.classList.add('none')
+             body.classList.remove('no-scroll')
+         }
+     })
+ </script>
+ <script>
+    const withdrawLink = document.getElementById('withdraw');
+    const message = document.getElementById('message');
+
+  function showMessage() {
+    message.classList.toggle('none');
+  }
+
+  function fish(event) {
+    document.querySelector('.popups').classList.toggle('none')
+  }
+ </script>
+</html>

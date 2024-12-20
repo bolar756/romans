@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils import timezone
 import secrets
+from django.core.exceptions import ValidationError
 from .paystack import Paystack 
 User=get_user_model()
 import uuid;
@@ -75,3 +76,56 @@ class Payment(models.Model):
             return False  # Return False if amount mismatch
        else:
         return False  
+
+class useraccount(models.Model):
+    account_number = models.CharField(default=uuid.uuid4() ,max_length=40)
+    account_owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    # def validate (self):
+    #     if useraccount.objects.filter(account_number = self.account_number).exists() or useraccount.objects.filter(account_owner= self.account_owner).exists():
+    #         raise ValidationError({'account_number': 'Account with this number already exists.'})
+  
+    def clean(self):
+        # Check for duplicate account numbers (already handled efficiently by unique=True)
+        # This check is redundant due to unique=True, but I'm keeping it for demonstration:
+        if self.pk is None and useraccount.objects.filter(account_number=self.account_number).exists():
+            raise ValidationError({'account_number': 'Account with this number already exists.'})
+        
+        # Check if the user already has an account
+        if self.pk is None and useraccount.objects.filter(account_owner=self.account_owner).exists():
+            raise ValidationError({'account_owner': 'User already has an account.'})
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
+
+    def __str__(self):
+        return str(self.account_number)  # Convert UUID to string
+    
+     
+    class Meta:
+        verbose_name = "User Account" # makes it look better in the admin
+        verbose_name_plural = "User Accounts" # makes it look better in the admin
+
+
+class DailyPoints(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(default=timezone.now)
+    points = models.PositiveIntegerField(default=500, editable=False) # Unchangeable points
+
+    def clean(self):
+        if DailyPoints.objects.filter(owner=self.owner, date=self.date).exists():
+            raise ValidationError("Daily points already awarded for today.")
+
+    def save(self, *args, **kwargs):
+        self.clean()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.owner.username}'s points on {self.date}: {self.points}"
+
+    class Meta:
+        verbose_name = "Daily Points"
+        verbose_name_plural = "Daily Points"
+        unique_together = ('owner', 'date')
+        ordering = ['-date']

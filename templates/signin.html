@@ -7,7 +7,8 @@
 <!-- body  -->
 {% block body %}
 <!-- i know you are going to looK AT THIS CODE AND THINK WHICH IDIOT WROTE THIS  Make the code simple and minimal-->
- <div class="container">
+<!-- i saw the code and i was flabbergasted the wronget function was reformatted-->
+ <div class="container" hidden>
    
     <form action="{% url 'login' %}" class="form" id="form" method="post" autocomplete="on">
         {% csrf_token %}
@@ -23,14 +24,26 @@
             <p class="hide">don't have an account  <a href="/signup"> signup</a></p>
         <button type="submit">submit</button>
     </form>
-    {% for message in messages %}
-    <div class="message">{{message}}</div>
+    
+ </div>
+ <div class="form">{% for message in messages %}
+    <div class="message"> <p>{{message}} </p> 
+    <p onclick ="document.querySelector('.message').classList.toggle('none')" >&times;</p></div>
     {% endfor %}
+    <form action="login" method="post">
+     {% csrf_token %}
+     <h1 class="padded">Arthub</h1>
+     <h1>Log In</h1>
+     <input type="text" name="username" id="" placeholder="Username" class="values">
+     <input type="password" name="password" id="" placeholder="password" class="values">
+     <div class="flex"><input type="checkbox" name="" id=""> Remember me</div>
+     <button type="submit">login</button>
+    </form>
  </div>
  <script>
     function wronget(){
-        document.querySelector('.message').parentElement.remove()
+        document.querySelector('.message').style.display='none'
     }
-    setTimeout(wronget(), 200)
+    setTimeout(wronget, 600)
  </script>
 {% endblock %}
