@@ -28,7 +28,7 @@
            <p>{{vale}}</p>
            <div class="button">
             {% if vale == None %}
-            <button onclick="document.querySelector('.followup').classList.toggle('none')">Activate account</button>
+            <button onclick="document.querySelector('.followup').classList.toggle('none')" style="color:black;">Activate account</button>
             {% else %}
             <form action="{% url 'createpoints' %}" method="post">
                 {% csrf_token %}
@@ -49,9 +49,11 @@
         <div class="message">
             <h1>Payment</h1>
             <p>please make a payment to the following bank account</p>
-            <p>account number: 1234567890</p>
-            <p>name: crest technologies</p>
-            <p>after that send a receipt to this email using the email used in creating your account</p>
+            <p>account number: 1534649653
+               
+              Access Bank</p>
+            <p>name: Miracle Adelae Oluwatosin</p>
+            <p>after that send a receipt to this Westerntech36@gmail.com using the email used in creating your account</p>
             <p>within 24hrs your account will be activated</p>
         </div>
       </div>
